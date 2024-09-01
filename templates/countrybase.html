@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+     <title>{{ctry}}</title>
+
+     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+     
+     <meta charset = "UTF-8">
+     <meta name="description" content="Africa Informational Site">
+     <meta name = "keywords" content="Africa, country, countries, North Africa, West Africa, East Africa, Central Africa, South Africa">
+          
+     <style>
+          h1 {
+               color: #fdd023;
+               text-align: center;
+               font-family: comic sans ms;
+               font-size: 300%;
+          }
+
+          body {
+               background-color: #158136
+          }
+
+          h4 {
+               background-color: #ff443a;
+               color: white;
+          }
+
+          h2 {
+               color: #fdd023;
+               font-family: arial;
+          }
+
+          p {
+               display: block;
+               color: white;
+               font-family: verdana;
+               padding: 10px;
+
+          }
+
+          .home {
+               border: 2px mediumpurple;
+               color: black;
+               padding: 10px;
+               text-align: center;
+               text-decoration: none;
+               display: inline-block;
+               font-size: 16 px;
+               margin: 4px 2px;
+               transition-duration: 0.4s;
+               cursor: pointer;
+               background-color: antiquewhite;
+               width: auto;
+
+
+          }
+
+          .home:hover {
+               background-color: darkorchid;
+               color: white;
+          }
+     </style>
+</head>
+
+<body>
+     <div>
+          <a class='home' href='/' target="_self">Home</a>
+          <h1>{{ctry}}</h1>
+     </div>
+
+     <div>
+          <div>
+               <h2>General Stuff</h2>
+               <p>Capital: {{cap}}</p>
+               <p>President/Leader: {{pres}}</p>
+               <p>Language: {{lang}}</p>
+               <img src="/static/Flag Pictures/{{pre_file}}/{{image_file}}">
+          </div>
+          <div>
+               <h2>Geography</h2>
+               <figure>
+               </figure>
+               
+               
+          </div>
+
+          <div>
+               <h2>History</h2>
+          </div>
+
+          <div>
+               <h2>Culture</h2>
+               <p>Ethnic Groups: {{tribes}}</p>
+               <p>Religion: {{relg}}</p>
+          </div>
+
+          <div>
+               <h2>Climate</h2>
+          </div>
+
+          <div>
+               <h2>Economy</h2>
+          </div>
+
+          <div>
+               <h2>Fun Facts</h2>
+          </div>
+
+          <div>
+               <h2>Defying Stereotypes</h2>
+          </div>
+          {% block content %}{% endblock %}
+
+
+
+
+
+     </div>
+
+
+
+</body>
+
+</html>
