@@ -2,7 +2,7 @@ import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for
 from fileinput import filename
 
-app = Flask(__name__)
+app = Flask(__name__) #trying it out
 
 def turn_to_text(choice): #for multi word country names
      choice = choice.replace("-", " ")
