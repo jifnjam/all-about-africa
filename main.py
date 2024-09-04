@@ -25,7 +25,7 @@ def regions(region):
      ctrydf = rg_df['Country'].str.lower()
      #change <country> into blank-blank-blank wording
      if region == 'northafrica':
-          return render_template('regionpage.html', title="North Africa", title_lower=region, data=ctrydf) 
+          return render_template("templates\regionpage.html", title="North Africa", title_lower=region, data=ctrydf) 
      elif region == 'eastafrica':
           return render_template('regionpage.html', title="East Africa", title_lower=region, data=ctrydf)
      elif region == 'westafrica':
