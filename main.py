@@ -2,7 +2,7 @@ import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for
 from fileinput import filename
 
-app = Flask(__name__) #trying it out
+app = Flask(__name__)
 
 def turn_to_text(choice): #for multi word country names
      choice = choice.replace("-", " ")
@@ -21,39 +21,41 @@ def home():
 
 @app.route('/<region>/')
 def regions(region):
-     rg_df = pd.read_excel('Africa Facts (P).xlsx', sheet_name=region)
-     ctrydf = rg_df['Country'].str.lower()
+     na_df = pd.read_csv('northafrica.csv')
+     na_ctrydf = na_df['Country'].str.lower()
+
      #change <country> into blank-blank-blank wording
      if region == 'northafrica':
-          return render_template("templates\regionpage.html", title="North Africa", title_lower=region, data=ctrydf) 
+          return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf) 
      elif region == 'eastafrica':
-          return render_template('regionpage.html', title="East Africa", title_lower=region, data=ctrydf)
+          return render_template('regionpage.html', title="East Africa", title_lower=region, data=na_ctrydf)
      elif region == 'westafrica':
-          return render_template('regionpage.html', title="West Africa", title_lower=region, data=ctrydf)
+          return render_template('regionpage.html', title="West Africa", title_lower=region, data=na_ctrydf)
      elif region == 'centralafrica':
-          return render_template('regionpage.html', title="Central Africa", title_lower=region, data=ctrydf, chtext="blank")
+          return render_template('regionpage.html', title="Central Africa", title_lower=region, data=na_ctrydf)
      elif region == 'southafrica': 
-          return render_template('regionpage.html', title="South Africa", title_lower=region, data=ctrydf) 
+          return render_template('regionpage.html', title="South Africa", title_lower=region, data=na_ctrydf) 
 #changed 1 2 3 4 5 6
 
 @app.route('/<region>/<country>/')
 def countries(region, country):
-     df = pd.read_excel('Africa Facts (P).xlsx', sheet_name=region)
-     df = df.dropna(axis='columns')
+     na_df = pd.read_csv('northafrica.csv')
+     na_df = na_df.dropna(axis='columns')
 
-     capital_col = 1
-     lang_col = 2
-     pres_col = 3 
-     tribes_col = 4
-     relgion_col = 5
+     capital_col = 'Capital'
+     lang_col = 'Language'
+     pres_col = 'President/Leader' 
+     tribes_col = 'Tribes/Ethnic Groups'
+     relgion_col = 'Religion'
 
      if region == 'northafrica': 
+          #for loop here
           if country == 'algeria': 
-               df = df.loc[0]
+               na_df = na_df.loc[0]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col], pre_file='North Africa',
+                                      cap=na_df[capital_col], pres=na_df[pres_col], 
+                                      lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                      relg = na_df[relgion_col], pre_file='North Africa',
                                       image_file='Flag_of_Algeria.svg.png')
           elif country == 'egypt':
                df = df.loc[1]
