@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>All About Africa</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <style>
+    h1 {
+      color: #fdd023;
+      text-align: center;
+      font-family: comic sans ms;
+      font-size: 300%;
+    }
+
+    body {
+      background-color: #158136
+    }
+
+    h4 {
+      background-color: #ff443a;
+      color: white;
+    }
+
+    .region {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .region > div {
+      border: none;
+      color: white;
+      font-family: noto sans;
+      background-color: #ff443a;
+      margin: 20px;
+      width: 125px;
+      text-align: center;
+      font-size: 20px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 15px;
+      line-height: 55px;
+    }
+
+    .region>div:hover {
+      background-color: maroon;
+      border: 1px solid white;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1> All About Africa</h1>
+    <div class="region">
+      <div><a href="/northafrica/">North Africa</a></div>
+      <div><a href="/westafrica/">West Africa</a></div>
+      <div><a href ="/eastafrica/">East Africa</a></div>
+      <div><a href = '/centralafrica/'>Central Africa</a></div>
+      <div><a href = '/southafrica/'>South Africa</a></div>
+    </div>
+  </section>
+
+  <div>
+    <h2 style="text-align:center;margin:30px 0px 0px 5px;
+               "> About Us </h2>
+
+    <p style="background-color:#be2a2c;text-align:center;font-family:arial;
+            padding:15px 15px;"> Welcome to All About Africa! Here, you'll get to access facts and information about the wonderful and unique 54 countries of Africa. Click on one of the region buttons to begin your journey! You can learn things from the cuisine to the history of these nations. </p>
+
+</div>
+
+</body>
+
+</html>
