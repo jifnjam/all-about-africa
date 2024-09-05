@@ -435,5 +435,3 @@ def countries(region, country):
                                         relg = df[relgion_col],
                                         image_file='Flag_of_SouthAfrica.png')
 
-if __name__ == '__main__':
-     app.run(debug=True)
