@@ -2,6 +2,8 @@ import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for
 from fileinput import filename
 
+# for pythonanywhere
+
 app = Flask(__name__)
 
 def turn_to_text(choice): #for multi word country names
