@@ -21,7 +21,7 @@ def home():
 
 @app.route('/<region>/')
 def regions(region):
-     na_df = pd.read_csv("data\northafrica.csv")
+     na_df = pd.read_csv("northafrica.csv")
      na_ctrydf = na_df['Country'].str.lower()
 
      #change <country> into blank-blank-blank wording
