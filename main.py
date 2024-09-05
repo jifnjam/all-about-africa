@@ -31,7 +31,7 @@ def regions(region):
 
      #change <country> into blank-blank-blank wording
      if region == 'northafrica':
-          return render_template('regionpage.html', title="North Africa", title_lower=region) #, data=na_ctrydf) 
+          return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf) 
      elif region == 'eastafrica':
           return render_template('regionpage.html', title="East Africa", title_lower=region, data=na_ctrydf)
      elif region == 'westafrica':
