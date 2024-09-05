@@ -3,6 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from fileinput import filename
 
 # for pythonanywhere
+from pathlib import Path
+THIS_FOLDER = Path(__file__).parent.resolve()
+my_file = THIS_FOLDER / "/home/tobim/all-about-africa/northafrica.csv"
 
 app = Flask(__name__)
 
@@ -23,7 +26,7 @@ def home():
 
 @app.route('/<region>/')
 def regions(region):
-     na_df = pd.read_csv("northafrica.csv")
+     na_df = pd.read_csv(my_file)
      na_ctrydf = na_df['Country'].str.lower()
 
      #change <country> into blank-blank-blank wording
