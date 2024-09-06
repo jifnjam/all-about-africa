@@ -11,14 +11,15 @@
   
   <style>
     h1 {
-      color: #fdd023;
+      color: #ffffff;
       text-align: center;
       font-family: comic sans ms;
       font-size: 300%;
+      display:block;
     }
 
     body {
-      background-color: #158136
+      background-color: #38b000;
     }
 
     h4 {
@@ -27,7 +28,8 @@
     }
 
     h2 {
-      color: #fdd023;
+      
+      color: #ffffff;
       font-family: arial;
     }
 
@@ -54,46 +56,85 @@
       text-decoration: underline;
     }
 
-    .home {
-      border: 2px mediumpurple;
+    .homeul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #d4bc5a;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      width: 100%;
+      
+
+    }
+
+    .homeli {
+      float:left;
+    }
+
+    .homeli a {
+      display: block;
       color: black;
-      padding: 10px;
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
       text-align: center;
+      padding: 14px 16px;
       text-decoration: none;
-      display: inline-block;
-      font-size: 16 px;
-      margin: 4px 2px;
       transition-duration: 0.4s;
       cursor: pointer;
-      background-color: antiquewhite;
-      width: auto;
+    }
 
+    .homeli a:hover:not(.active) {
+      background-color:#ff443a;
+      text-decoration:none;
+    }
+
+    .homeli a:hover:active {
+      background-color:aqua;
+      text-decoration:none;
+    }
+
+    section {
+      background-color:rgb(85, 3, 3);
 
     }
 
-    .home:hover {
-      background-color: darkorchid;
-      color: white;
-    }
   </style>
 </head>
 
 <body>
 
+
+    
+
   <div>
-    <a class='home' href='/' target="_self">Home</a>
-    <h1>{{title}}</h1>
+    <ul class="homeul">
+      <li class="homeli"><a class='home' href='/' target="_self">Home</a></li>
+      <li class="homeli"><a class='home' href="/northafrica/">North Africa</a></li>
+      <li class="homeli"><a class='home' href="/southafrica/">South Africa</a></li>
+      <li class="homeli"><a class='home' href="/westafrica/">West Africa</a></li>
+      <li class="homeli"><a class='home' href="/eastafrica/">East Africa</a></li>
+      <li class="homeli"><a class='home' href="/centralafrica/">Central Africa</a></li>
+    </ul> 
   </div>
 
 
-  <h2> {{title}}'s Countries listed A-Z</h2>
+  <section>
+    <div>
+      <h1>{{title}}</h1>
+    </div>
+    
+    
+    <h2> {{title}}'s Countries listed A-Z</h2>
 
 
-  <div>
-    <ul>
-      {% block content %}{% endblock %}
-    </ul>
-  </div>
+    <div>
+      <ul>
+        {% block content %}{% endblock %}
+      </ul>
+    </div>
+</section>
 </body>
 
 </html>

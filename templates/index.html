@@ -7,14 +7,26 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <style>
     h1 {
-      color: #fdd023;
+      color: #EC0B43;
       text-align: center;
-      font-family: comic sans ms;
-      font-size: 300%;
+      font-family: "Arial Black", sans-serif;
+      background-color: white;
+      border-radius: 20px;
+      max-width: fit-content;
+      margin:auto;
+      padding: auto;
+
+    }
+
+    .header {
+      
+      color: white;
+      background-color: #EC0B43;
+      font-size: 50px;
     }
 
     body {
-      background-color: #158136
+      background-color: #38b000;
     }
 
     h4 {
@@ -29,11 +41,11 @@
       justify-content: center;
     }
 
-    .region > div {
+    .region>div {
       border: none;
       color: white;
-      font-family: noto sans;
-      background-color: #ff443a;
+      font-family: Arial, sans;
+      background-color: #EC0B43;
       margin: 20px;
       width: 125px;
       text-align: center;
@@ -45,7 +57,7 @@
     }
 
     .region>div:hover {
-      background-color: maroon;
+      background-color: #D8973C;
       border: 1px solid white;
     }
 
@@ -53,30 +65,57 @@
       color: white;
       text-decoration: none;
     }
+
+    section {
+      background-color: #ffffff;
+      border: 5px solid #EC0B43;
+      margin:50px 100px 0px 100px;
+      display:block;
+      border-radius: 20px;
+    }
+
+    p {
+      background-color: white;
+      text-align: center;
+      font-family: arial;
+      padding: 15px 15px;
+    }
+
+    .para {
+      background-color: #EC0B43;
+      text-align: center;
+      font-family: arial;
+      color: white;
+    }
   </style>
 </head>
 
 <body>
   <section>
-    <h1> All About Africa</h1>
+    <h1 style="font-size:500%;"> All About Africa </h1>
     <div class="region">
       <div><a href="/northafrica/">North Africa</a></div>
       <div><a href="/westafrica/">West Africa</a></div>
-      <div><a href ="/eastafrica/">East Africa</a></div>
-      <div><a href = '/centralafrica/'>Central Africa</a></div>
-      <div><a href = '/southafrica/'>South Africa</a></div>
+      <div><a href="/eastafrica/">East Africa</a></div>
+      <div><a href='/centralafrica/'>Central Africa</a></div>
+      <div><a href='/southafrica/'>South Africa</a></div>
     </div>
+    <div>
+      <p> Welcome to All About Africa! Here, you'll get to access facts and information about the wonderful and unique 54 countries of Africa. Click on one of the region buttons to begin your journey! You can learn things from the cuisine to the history of these nations. </p>
+    </div>
+
   </section>
 
-  <div>
-    <h2 style="text-align:center;margin:30px 0px 0px 5px;
-               "> About Us </h2>
-
-    <p style="background-color:#be2a2c;text-align:center;font-family:arial;
-            padding:15px 15px;"> Welcome to All About Africa! Here, you'll get to access facts and information about the wonderful and unique 54 countries of Africa. Click on one of the region buttons to begin your journey! You can learn things from the cuisine to the history of these nations. </p>
-
-</div>
-
+  <section style="background-color: #EC0B43;height:500px;border-radius:0px;">
+    <h1 class="header"> About Us </h1>
+    <p class="para" style="border-bottom: 10px solid #D8973C;">We are All About Africa! blah blah blah blah blfjkied djkaelk eajd kjealjk
+      kjekgjak kejak
+    </p>
+    <h1 class="header"> Contact Us </h1>
+    <p class="para" style="border-bottom: 10px solid #D8973C;">Reach All About Africa at our github. </p>
+    <h1 class="header"> Citations </h1>
+    <p class="para" style="border-bottom: 10px solid #D8973C;"> We'd like to thank ciafactbook and bbc for their help in providing the information for this website.</p>
+  </section>
 </body>
 
 </html>

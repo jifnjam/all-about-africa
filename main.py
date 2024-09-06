@@ -5,7 +5,11 @@ from fileinput import filename
 # for pythonanywhere
 from pathlib import Path
 THIS_FOLDER = Path(__file__).parent.resolve()
-my_file = THIS_FOLDER / "/home/tobim/all-about-africa/northafrica.csv"
+my_file_na = THIS_FOLDER / "/home/tobim/all-about-africa/northafrica.csv"
+my_file_wa = THIS_FOLDER / "/home/tobim/all-about-africa/westafrica.csv"
+my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/southafrica.csv"
+my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv"
+my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
 
 app = Flask(__name__)
 
@@ -26,26 +30,51 @@ def home():
 
 @app.route('/<region>/')
 def regions(region):
-     na_df = pd.read_csv(my_file)
+     #na_df = pd.read_csv("northafrica.csv") # production
+     na_df = pd.read_csv(my_file_na) # deployment
      na_ctrydf = na_df['Country'].str.lower()
+
+     wa_df = pd.read_csv(my_file_wa) # deployment
+     wa_ctrydf = wa_df['Country'].str.lower()
+
+     sa_df = pd.read_csv(my_file_sa) # deployment
+     sa_ctrydf = sa_df['Country'].str.lower()
+
+     ca_df = pd.read_csv(my_file_ca) # deployment
+     ca_ctrydf = ca_df['Country'].str.lower()
+
+     ea_df = pd.read_csv(my_file_ea) # deployment
+     ea_ctrydf = ea_df['Country'].str.lower()
 
      #change <country> into blank-blank-blank wording
      if region == 'northafrica':
           return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf) 
      elif region == 'eastafrica':
-          return render_template('regionpage.html', title="East Africa", title_lower=region, data=na_ctrydf)
+          return render_template('regionpage.html', title="East Africa", title_lower=region, data=ea_ctrydf)
      elif region == 'westafrica':
-          return render_template('regionpage.html', title="West Africa", title_lower=region, data=na_ctrydf)
+          return render_template('regionpage.html', title="West Africa", title_lower=region, data=wa_ctrydf)
      elif region == 'centralafrica':
-          return render_template('regionpage.html', title="Central Africa", title_lower=region, data=na_ctrydf)
+          return render_template('regionpage.html', title="Central Africa", title_lower=region, data=ca_ctrydf)
      elif region == 'southafrica': 
-          return render_template('regionpage.html', title="South Africa", title_lower=region, data=na_ctrydf) 
+          return render_template('regionpage.html', title="South Africa", title_lower=region, data=sa_ctrydf) 
 #changed 1 2 3 4 5 6
 
 @app.route('/<region>/<country>/')
 def countries(region, country):
-     na_df = pd.read_csv('northafrica.csv')
+     na_df = pd.read_csv(my_file_na)
      na_df = na_df.dropna(axis='columns')
+
+     wa_df = pd.read_csv(my_file_wa)
+     wa_df = wa_df.dropna(axis='columns')
+
+     ea_df = pd.read_csv(my_file_ea)
+     ea_df = ea_df.dropna(axis='columns')
+
+     sa_df = pd.read_csv(my_file_sa)
+     sa_df = sa_df.dropna(axis='columns')
+
+     ca_df = pd.read_csv(my_file_ca)
+     ca_df = ca_df.dropna(axis='columns')
 
      capital_col = 'Capital'
      lang_col = 'Language'
@@ -63,378 +92,380 @@ def countries(region, country):
                                       relg = na_df[relgion_col], pre_file='North Africa',
                                       image_file='Flag_of_Algeria.svg.png')
           elif country == 'egypt':
-               df = df.loc[1]
+               na_df = na_df.loc[1]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col], pre_file='North Africa',
+                                      cap=na_df[capital_col], pres=na_df[pres_col], 
+                                      lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                      relg = na_df[relgion_col], pre_file='North Africa',
                                       image_file='Flag_of_Egypt.png')
           elif country == 'libya':
-               df = df.loc[2]
+               na_df = na_df.loc[2]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col], pre_file='North Africa',
+                                      cap=na_df[capital_col], pres=na_df[pres_col], 
+                                      lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                      relg = na_df[relgion_col], pre_file='North Africa',
                                       image_file='Flag_of_Libya.png')
           elif country == 'morocco':
-               df = df.loc[3]
+               na_df = na_df.loc[3]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=na_df[capital_col], pres=na_df[pres_col], 
+                                      lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                      relg = na_df[relgion_col],
                                       image_file='Flag_of_Morocco.png')
           elif country == 'sudan':
-               df = df.loc[4]
+               na_df = na_df.loc[4]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=na_df[capital_col], pres=na_df[pres_col], 
+                                      lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                      relg = na_df[relgion_col],
                                       image_file='Flag_of_Sudan.png')
           elif country == 'tunisia':
-               df = df.loc[5]
+               na_df = na_df.loc[5]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=na_df[capital_col], pres=na_df[pres_col], 
+                                      lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                      relg = na_df[relgion_col],
                                       image_file='Flag_of_Tunisia.png')
      elif region == 'centralafrica':
           if country == 'angola':
-               df = df.loc[0]
+               ca_df = ca_df.loc[0]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_Angola.png')
           elif country == 'cameroon':
-               df = df.loc[1]
+               ca_df = ca_df.loc[1]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_Cameroon.png')
           elif country == 'central-african-republic':
-               df = df.loc[2]
+               ca_df = ca_df.loc[2]
                return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_CentralAfricanRepublic.png') 
           elif country == 'chad':
-               df = df.loc[3]
+               ca_df = ca_df.loc[3]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_Tunisia.png')
           elif country == 'democractic-republic-of-the-congo':
-               df = df.loc[4]
+               ca_df = ca_df.loc[4]
                return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_DemocraticRepublicoftheCongo.png')
           elif country == 'equatorial-guinea':
-               df = df.loc[5]
+               ca_df = ca_df.loc[5]
                return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_EquatorialGuinea.png')
           elif country == 'gabon':
-               df = df.loc[6]
+               ca_df = ca_df.loc[0]
                return render_template('countrypage.html', ctry=country.capitalize(), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_Gabon.png')
           elif country == 'republic-of-the-congo':
-               df = df.loc[7]
+               ca_df = ca_df.loc[0]
                return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_RepublicoftheCongo.png')
           elif country == 'sao-tome-and-principe':
-               df = df.loc[8]
-               return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                      cap=df[capital_col], pres=df[pres_col], 
-                                      lang=df[lang_col], tribes=df[tribes_col], 
-                                      relg = df[relgion_col],
+              ca_df = ca_df.loc[0]
+              return render_template('countrypage.html', ctry=turn_to_text(country), 
+                                      cap=ca_df[capital_col], pres=ca_df[pres_col], 
+                                      lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
+                                      relg = ca_df[relgion_col],
                                       image_file='Flag_of_SaoTomeandPrincipe.png')
           elif region == 'westafrica':
                if country == 'benin':
-                    df = df.loc[0]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Benin.png')
                elif country == 'burkina-faso':
-                    df = df.loc[1]
-                    return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                    wa_df = wa_df.loc[0]
+                    return render_template('countrypage.html', ctry=turn_to_text(country), 
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_BurkinaFaso.png')
                elif country == 'cape-verde':
-                    df = df.loc[2]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_CapeVerde.png') 
                elif country == 'gambia':
-                    df = df.loc[3]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Gambia.png')
                elif country == 'ghana':
-                    df = df.loc[4]
-                    return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                    wa_df = wa_df.loc[0]
+                    return render_template('countrypage.html', ctry=country.capitalize(), 
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Ghana.png')
                elif country == 'guinea':
-                    df = df.loc[5]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Guinea.png')
                elif country == 'guinea-bissau':
-                    df = df.loc[6]
-                    return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                    wa_df = wa_df.loc[0]
+                    return render_template('countrypage.html', ctry=turn_to_text(country), 
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_GuineaBissau.png')
                elif country == 'ivory-coast':
-                    df = df.loc[7]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_IvoryCoast.png')
                elif country == 'liberia':
-                    df = df.loc[8]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=na_df[capital_col], pres=na_df[pres_col], 
+                                        lang=na_df[lang_col], tribes=na_df[tribes_col], 
+                                        relg = na_df[relgion_col],
                                         image_file='Flag_of_Liberia.png')
                elif country == 'mali':
-                    df = df.loc[9]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Mali.png')
                elif country == 'mauritania':
-                    df = df.loc[10]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Mauritania.png')
                elif country == 'niger':
-                    df = df.loc[11]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Niger.png')
                elif country == 'nigeria':
-                    df = df.loc[12]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Nigeria.png')
                elif country == 'senegal':
-                    df = df.loc[13]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Senegal.png')
                elif country == 'sierra-leone':
-                    df = df.loc[14]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_SierraLeone.png')
                elif country == 'togo':
-                    df = df.loc[15]
+                    wa_df = wa_df.loc[0]
                     return render_template('countrypage.html', ctry=turn_to_text(country), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=wa_df[capital_col], pres=wa_df[pres_col], 
+                                        lang=wa_df[lang_col], tribes=wa_df[tribes_col], 
+                                        relg = wa_df[relgion_col],
                                         image_file='Flag_of_Togo.png')
           elif region == 'eastafrica':
                if country == 'burundi':
-                    df = df.loc[0]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Benin.png')
                elif country == 'comoros':
-                    df = df.loc[1]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Comoros.png')
                elif country == 'djibouti':
-                    df = df.loc[2]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Djibouti.png')
                elif country == 'eritrea':
-                    df = df.loc[3]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Eritrea.png')
                elif country == 'ethiopia':
-                    df = df.loc[4]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Ethiopia.png')
                elif country == 'kenya':
-                    df = df.loc[5]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Kenya.png')
                elif country == 'madagascar':
-                    df = df.loc[6]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Madagascar.png')
                elif country == 'malawi':
-                    df = df.loc[7]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Malawi.png')
                elif country == 'mauritius':
-                    df = df.loc[8]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Mauritius.png')
                elif country == 'mozambique':
-                    df = df.loc[9]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Mozambique.png')
                elif country == 'rwanda':
-                    df = df.loc[10]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Rwanda.png')
                elif country == 'seychelles':
-                    df = df.loc[11]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Seychelles.png')
                elif country == 'somalia':
-                    df = df.loc[12]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Somalia.png')
                elif country == 'south-sudan':
-                    df = df.loc[13]
-                    return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                    ea_df = ea_df.loc[0]
+                    return render_template('countrypage.html', ctry=turn_to_text(country), 
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_SouthSudan.png')
                elif country == 'tanzania':
-                    df = df.loc[14]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Tanzania.png')
                elif country == 'uganda':
-                    df = df.loc[15]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Uganda.png')
                elif country == 'zambia':
-                    df = df.loc[16]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Zambia.png')
                elif country == 'zimbabwe':
-                    df = df.loc[17]
+                    ea_df = ea_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                        relg = ea_df[relgion_col],
                                         image_file='Flag_of_Zimbabwe.png')
           elif region == 'southafrica':
                if country == 'botswana':
-                    df = df.loc[0]
+                    sa_df = sa_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=sa_df[capital_col], pres=sa_df[pres_col], 
+                                        lang=sa_df[lang_col], tribes=sa_df[tribes_col], 
+                                        relg = sa_df[relgion_col],
                                         image_file='Flag_of_Botswana.png')
                elif country == 'eswatini':
-                    df = df.loc[1]
+                    sa_df = sa_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=sa_df[capital_col], pres=sa_df[pres_col], 
+                                        lang=sa_df[lang_col], tribes=sa_df[tribes_col], 
+                                        relg = sa_df[relgion_col],
                                         image_file='Flag_of_Eswatini.png')
                elif country == 'lesotho':
-                    df = df.loc[2]
+                    sa_df = sa_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=sa_df[capital_col], pres=sa_df[pres_col], 
+                                        lang=sa_df[lang_col], tribes=sa_df[tribes_col], 
+                                        relg = sa_df[relgion_col],
                                         image_file='Flag_of_Lesotho.png')
                elif country == 'namibia':
-                    df = df.loc[3]
+                    sa_df = sa_df.loc[0]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                                        cap=sa_df[capital_col], pres=sa_df[pres_col], 
+                                        lang=sa_df[lang_col], tribes=sa_df[tribes_col], 
+                                        relg = sa_df[relgion_col],
                                         image_file='Flag_of_Namibia.png')
                elif country == 'south-africa':
-                    df = df.loc[4]
-                    return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=df[capital_col], pres=df[pres_col], 
-                                        lang=df[lang_col], tribes=df[tribes_col], 
-                                        relg = df[relgion_col],
+                    sa_df = sa_df.loc[0]
+                    return render_template('countrypage.html', ctry=turn_to_text(country), 
+                                        cap=sa_df[capital_col], pres=sa_df[pres_col], 
+                                        lang=sa_df[lang_col], tribes=sa_df[tribes_col], 
+                                        relg = sa_df[relgion_col],
                                         image_file='Flag_of_SouthAfrica.png')
 
+if __name__ == "__main__":
+     app.run(debug=True) 

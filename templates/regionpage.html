@@ -4,7 +4,7 @@
 
 {% for i in data %}
     {% set chtext = i %}
-    <li><a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i | capitalize}}</a></li> 
+    <li><a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i}}</a></li> 
 {% endfor %}
 
 {% endblock %}
