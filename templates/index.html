@@ -7,23 +7,24 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <style>
     h1 {
-      color: #e71d36;
+      color: #00AF54;
       text-align: center;
       font-family: "Arial Black", sans-serif;
-      background-color: white;
+      background-color: #ffffff;
       border-radius: 20px;
       max-width: fit-content;
-      margin:auto;
+      margin: auto;
       padding: auto;
-
     }
 
-    .header {
-      
-      color: white;
-      background-color: #e71d36;
+    h2 {
+      color: #00AF54;
+      font-family: "Arial Black", sans-serif;
       /* background-color: #ff443a; */
       font-size: 50px;
+      text-align: right;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     body {
@@ -46,9 +47,9 @@
 
     .region>div {
       border: none;
-      color: white;
+      color: black;
       font-family: Arial, sans;
-      background-color: #e71d36;
+      background-color: #00AF54;
       /* background-color: #ff443a; */
       margin: 20px;
       width: 125px;
@@ -61,41 +62,38 @@
     }
 
     .region>div:hover {
-      background-color: #23001e;
-      border: 1px solid white;
+      background-color: #e71d36;
     }
 
     a {
-      color: white;
+      color: #000000;
       text-decoration: none;
     }
 
     section {
       background-color: #ffffff;
-      border: 5px solid #e71d36;
-      margin:50px 100px 0px 100px;
-      display:block;
+      border: 5px solid #DD1C1A;
+      margin: 50px 25px 0px 25px;
+      display: block;
       border-radius: 20px;
-      
     }
 
     p {
-      background-color: white;
+      background-color: #ffffff;
       text-align: center;
       font-family: arial;
-      padding: 15px 15px;
+      padding: 0px 15px;
     }
 
     .para {
-      background-color: #e71d36;
+      background-color: #ffffff;
       /* background-color: #ff443a; */
       text-align: center;
       font-family: arial;
-      color: white;
-      max-width:auto;
+      color: black;
+      max-width: auto;
+      padding: 0px 20px;
     }
-
-    
   </style>
 </head>
 
@@ -110,26 +108,29 @@
       <div><a href='/southafrica/'>South Africa</a></div>
     </div>
     <div>
-      <p style="font-family: 'Arial Black', sans-serif;font-size: 20px;">  Click on one of the region buttons to begin your journey! </p>
+      <p style="font-family: 'Arial Black', sans-serif;font-size: 20px;"> Click on one of the region buttons to begin
+        your journey! </p>
     </div>
 
   </section>
 
-  <section style="background-color: #e71d36;border-radius:0px;">
-    <h1 class="header"> About Us </h1>
-    <p class="para">Hello, I'm Tobi! I manage allaboutafrica.com. I started this website 
+  <section style="background-color: #ffffff;border-radius:0px;">
+    <h2 style="text-align:left;"> About Us </h2>
+    <p class="para" style="text-align:left;">Hello, I'm Tobi! I manage allaboutafrica.com. I started this website
       with the goal of making the awesome things about Africa awesome to everyone else! Hopefully, the longer you
       spend here, the more you'll get to appreciate the world around you. Here there is information on
-      each country's geography, climate, cuisine, politics, history, demographics, and some fun facts. All of the information 
-      on allaboutafrica.com is intended to be wholly factual and work towards eliminating stereotypes about the countries.
+      each country's geography, climate, cuisine, politics, history, demographics, and some fun facts. All of the
+      information
+      on allaboutafrica.com is intended to be wholly factual and work towards eliminating stereotypes about the
+      countries.
     </p>
-    <h1 class="header"> Contact Us </h1>
-    <p class="para">Github: @jifnjam </p>
-    <p class="para">Twitter: @mintgentry</p>
-    <h1 class="header"> Citations </h1>
-    <p class="para">CiaFactBook</p>
-    <p class="para">BBC</p>
-    <p class="para">Access all resources used here at this notion site.</p>
+    <h2 style="text-align:right"> Contact Us </h1>
+    <p class="para" style="text-align:right;">Github: @jifnjam </p>
+    <p class="para" style="text-align:right;">Twitter: @mintgentry</p>
+    <h2 style="text-align:left;"> Citations </h1>
+    <p class="para" style="text-align:left;">CiaFactBook</p>
+    <p class="para" style="text-align:left;">BBC</p>
+    <p class="para" style="text-align:left;">Access all resources used here at this notion site.</p>
   </section>
 </body>
 
