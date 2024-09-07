@@ -13,7 +13,7 @@
 
      <style>
           h1 {
-               color: #ffffff;
+               color: #00AF54;
                text-align: center;
                font-family: "Arial Black", sans-serif;
                font-size: 300%;
@@ -33,28 +33,7 @@
                text-align: left;
           }
 
-          ul {
-               margin: 5px;
-               padding: 0;
-               overflow: hidden;
-               background-color: transparent;
-          }
-
-          li a {
-               display: list-item;
-               color: white;
-               text-decoration: none;
-               font-size: 20px;
-               padding: 10px;
-          }
-
-          li a:link {
-               text-align: left;
-          }
-
-          li a:hover {
-               text-decoration: underline;
-          }
+          
 
           .homeul {
                list-style-type: none;
@@ -66,8 +45,6 @@
                position: -webkit-sticky;
                top: 0;
                width: 100%;
-
-
           }
 
           .homeli {
@@ -86,17 +63,17 @@
           }
 
           .homeli a:hover:not(.active) {
-               background-color: #23001e;
+               background-color: #e71d36;
                text-decoration: none;
           }
 
-          .homeli a:hover:active {
+          .homeli a:active {
                background-color: #637081;
                text-decoration: none;
           }
 
           section {
-               background-color: #466365;
+               background-color: #ffffff;
                height:fit-content;
 
           }
@@ -143,7 +120,7 @@
           }
           
           p {
-               color:#ECEBF3;
+               color:#000000;
                padding: 25px;
                text-align: left;
           }
@@ -172,7 +149,7 @@
                     <p>Capital: {{cap}}</p>
                     <p>President/Leader: {{pres}}</p>
                     <p>Language: {{lang}}</p>
-                    <img src="/Flag Pictures/{{pre_file}}/{{image_file}}">
+                    <img src={{htpic}}>
                </div>
           
 
