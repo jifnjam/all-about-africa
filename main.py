@@ -15,11 +15,13 @@ my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
 app = Flask(__name__)
 
 def turn_to_text(choice): #for multi word country names
+     choice = str(choice)
      choice = choice.replace("-", " ")
      choice = choice.title()
      return choice
 
 def turn_to_html(choice):
+     choice = str(choice)
      spread = choice.lower()
      spread = spread.split()
      spread = "-".join(spread)
