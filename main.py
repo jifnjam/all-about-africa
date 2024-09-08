@@ -164,7 +164,7 @@ def countries(region, country):
                                       lang=ca_df[lang_col], tribes=ca_df[tribes_col], 
                                       relg = ca_df[relgion_col],
                                       image_file='Flag_of_Tunisia.png')
-          elif country == 'democractic-republic-of-the-congo':
+          elif country == 'democratic-republic-of-the-congo':
                ca_df = ca_df.loc[4]
                return render_template('countrypage.html', ctry=turn_to_text(country), 
                                       cap=ca_df[capital_col], pres=ca_df[pres_col], 
