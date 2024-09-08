@@ -81,7 +81,7 @@
       grid-template-columns: 30% 70%;
     }
 
-    .grid-item {
+    .item2 {
       text-align: center;
       padding-left: 20px;
       font-size: 20px;
@@ -89,15 +89,19 @@
       grid-column: 1 / 1;
     }
 
-    .sider {
-      text-align: center;
-      font-size: 20px;
-      grid-column: 2/1;
+    .item1 {
+      grid-column: 2 / 1;
     }
 
     a {
       text-decoration: none;
       color: #000000;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #000000;
+
     }
   </style>
 </head>
@@ -124,7 +128,7 @@
 
     <div class="grid-container">
       {% block content %}{% endblock %}
-      <div class="sider">Each region of Africa is unique and special. Variations
+      <div class="item1">Each region of Africa is unique and special. Variations
         include geography, demographics, cuisine and lots more. Many of your favorite athletes, celebrities, 
         and inspirations may be originally from one of these regions.
       </div>
