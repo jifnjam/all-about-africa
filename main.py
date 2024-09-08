@@ -85,6 +85,9 @@ def countries(region, country):
      ca_df = pd.read_csv(my_file_ca)
      ca_df = ca_df.dropna(axis='columns')
 
+     country = str(country)
+     region = str(region)
+     
      capital_col = 'Capital'
      lang_col = 'Language'
      pres_col = 'President/Leader' 
