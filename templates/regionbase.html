@@ -78,19 +78,16 @@
       display: grid;
       column-gap: 75px;
       row-gap: 50px;
-      grid-template-columns: 30% 70%;
+      grid-template-columns: auto;
     }
 
-    .item2 {
-      text-align: center;
+    grid-item {
+      text-align: left;
       padding-left: 20px;
       font-size: 20px;
       text-decoration: none;
-      grid-column: 1 / 1;
-    }
+      grid-auto-flow: row;
 
-    .item1 {
-      grid-column: 2 / 1;
     }
 
     a {
@@ -128,10 +125,6 @@
 
     <div class="grid-container">
       {% block content %}{% endblock %}
-      <div class="item1">Each region of Africa is unique and special. Variations
-        include geography, demographics, cuisine and lots more. Many of your favorite athletes, celebrities, 
-        and inspirations may be originally from one of these regions.
-      </div>
     </div>
 
   </section>

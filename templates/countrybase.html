@@ -26,7 +26,7 @@
 
           h2 {
 
-               color: #F0C808;
+               color: #4392f1;
                font-family: arial;
                font-size: 35px;
                padding-left: 25px;
@@ -40,7 +40,7 @@
                margin: 0;
                padding: 0;
                overflow: hidden;
-               background-color: #e71d36;
+               background-color: #00AF54;
                position: sticky;
                position: -webkit-sticky;
                top: 0;
@@ -114,14 +114,21 @@
           .item6 {
                grid-column: 1 / span 1;
           }
+          
+          .item7 {
+               grid-column: 1 / span 1;
+          }
 
           img {
-               grid-column: 2 / 1;
+               grid-column-start: 2;
+               grid-row: 1 / 2;
+               max-width: 100%;
+               height: auto;
           }
           
           p {
                color:#000000;
-               padding: 25px;
+               padding: 0px 25px;
                text-align: left;
           }
 
@@ -144,39 +151,40 @@
      <section>
           <h1>{{ctry}}</h1>
           <div class="grid-container">
-               <div>
+               <div class="item1">
                     <h2>General Stuff</h2>
                     <p>Capital: {{cap}}</p>
                     <p>President/Leader: {{pres}}</p>
                     <p>Language: {{lang}}</p>
-                    <img src={{htpic}}>
+                    
                </div>
-          
+
+               <img src={{htpic}}>
 
 
-               <div class="item1">
+               <div class="item2">
                     <h2>Geography</h2>
                </div>
 
-               <div class="item2">
+               <div class="item3">
                     <h2>History</h2>
                </div>
 
-               <div class="item3">
+               <div class="item4">
                     <h2>Culture</h2>
                     <p>Ethnic Groups: {{tribes}}</p>
                     <p>Religion: {{relg}}</p>
                </div>
 
-               <div class="item4">
+               <div class="item5">
                     <h2>Climate</h2>
                </div>
 
-               <div class="item5">
+               <div class="item6">
                     <h2>Economy</h2>
                </div>
 
-               <div class="item6">
+               <div class="item7">
                     <h2>Fun Facts</h2>
                </div>
 

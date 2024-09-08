@@ -93,11 +93,11 @@ def countries(region, country):
           #for loop here
           if country == 'algeria': 
                na_df = na_df.loc[0]
-               
+               pics = insert_pic('North Africa', 'Flag_of_Algeria.svg.png')
                return render_template('countrypage.html', ctry=country.capitalize(), 
                                       cap=na_df[capital_col], pres=na_df[pres_col], 
                                       lang=na_df[lang_col], tribes=na_df[tribes_col], 
-                                      relg = na_df[relgion_col], htpic = insert_pic('North Africa', 'Flag_of_Algeria.svg.png'))
+                                      relg = na_df[relgion_col], htpic = pics)
           elif country == 'egypt':
                na_df = na_df.loc[1]
                return render_template('countrypage.html', ctry=country.capitalize(), 
