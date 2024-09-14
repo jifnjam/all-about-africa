@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response, make_response
 from fileinput import filename
 
 # for pythonanywhere
@@ -318,10 +318,15 @@ def countries(region, country):
           elif region == 'eastafrica':
                if country == 'burundi':
                     ea_df = ea_df.loc[0]
-                    return render_template('countrypage.html', ctry=country.capitalize(), 
-                                        cap=ea_df[capital_col], pres=ea_df[pres_col], 
-                                        lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
-                                        relg = ea_df[relgion_col])
+                    try:
+                         return render_template('countrypage.html', ctry=country.capitalize(), 
+                                             cap=ea_df[capital_col], pres=ea_df[pres_col], 
+                                             lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
+                                             relg = ea_df[relgion_col])
+                    except Exception as e:
+                         return Response('Error: {}'.format(str(e)), status=500)
+                    return Response(result, status=200)
+               
                elif country == 'comoros':
                     ea_df = ea_df.loc[1]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
