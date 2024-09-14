@@ -321,8 +321,7 @@ def countries(region, country):
                     return render_template('countrypage.html', ctry=country.capitalize(), 
                                         cap=ea_df[capital_col], pres=ea_df[pres_col], 
                                         lang=ea_df[lang_col], tribes=ea_df[tribes_col], 
-                                        relg = ea_df[relgion_col],
-                                        image_file='Flag_of_Benin.png')
+                                        relg = ea_df[relgion_col])
                elif country == 'comoros':
                     ea_df = ea_df.loc[1]
                     return render_template('countrypage.html', ctry=country.capitalize(), 
