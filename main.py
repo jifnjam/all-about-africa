@@ -43,6 +43,9 @@ def insert_pic(pic, reg):
      return my_pic
 
 def countries_deploy(region, country):
+
+     region = str(region)
+
      my_path = "/home/tobim/all-about-africa/" + region + ".csv"
 
      my_file = THIS_FOLDER / my_path
@@ -50,7 +53,6 @@ def countries_deploy(region, country):
      df = df.dropna(axis='columns')
      
      country = str(country).title()
-     region = str(region)
      
      df = df.astype('string')
 
@@ -69,8 +71,8 @@ def countries_deploy(region, country):
      religion = selection['Religion']
 
      return render_template('countrypage.html', ctry=country, cap=capital,
-                            pres=pres_leader, lang = language, tribes = tribes_ethn,
-                            relg = religion)
+                            pres=pres_leader, lang=language, tribes=tribes_ethn,
+                            relg = religion) 
 
 @app.route('/')
 def home():
@@ -78,7 +80,7 @@ def home():
 
 @app.route('/<region>/')
 def regions(region):
-     #na_df = pd.read_csv("northafrica.csv") # production
+
      na_df = pd.read_csv(my_file_na) # deployment
      na_ctrydf = na_df['Country'].str.lower()
 
@@ -105,12 +107,13 @@ def regions(region):
           return render_template('regionpage.html', title="Central Africa", title_lower=region, data=ca_ctrydf)
      elif region == 'southafrica': 
           return render_template('regionpage.html', title="South Africa", title_lower=region, data=sa_ctrydf) 
+     
 #changed 1 2 3 4 5 6
 
 @app.route('/<region>/<country>/')
 def countries(region, country):
 
-     countries_deploy(region, country)
+     return(countries_deploy(region, country))
      
 if __name__ == "__main__":
      app.run(debug=True) 
