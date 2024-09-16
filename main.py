@@ -42,45 +42,6 @@ def insert_pic(pic, reg):
      my_pic = THIS_FOLDER / my_path
      return my_pic
 
-def countries_deploy(region, country):
-
-     region = str(region)
-     if region is "northafrica":
-          my_file = my_file_na
-     elif region is "westafrica":
-          my_file = my_file_wa
-     elif region is "centralafrica":
-          my_file = my_file_ca
-     elif region is "eastafrica":
-          my_file = my_file_ea
-     elif region is "southafrica":
-          my_file = my_file_ea
-
-     df = pd.read_csv(my_file)
-     df = df.dropna(axis='columns')
-     
-     country = str(country).title()
-     
-     df = df.astype('string')
-
-     df = df.set_index('Country')
-
-     selection = df.loc[country]
-
-     if "-" in country:
-          country = turn_to_text(country)
-
-
-     capital = selection['Capital']
-     pres_leader = selection['President/Leader']
-     language = selection['Language']
-     tribes_ethn = selection['Tribes/Ethnic Groups']
-     religion = selection['Religion']
-
-     return render_template('countrypage.html', ctry=country, cap=capital,
-                            pres=pres_leader, lang=language, tribes=tribes_ethn,
-                            relg = religion) 
-
 @app.route('/')
 def home():
      return render_template('index.html')
@@ -120,7 +81,44 @@ def regions(region):
 @app.route('/<region>/<country>/')
 def countries(region, country):
 
-     return(countries_deploy(region, country))
+     region = str(region)
+
+     if region is "northafrica":
+          my_file = my_file_na
+     elif region is "westafrica":
+          my_file = my_file_wa
+     elif region is "centralafrica":
+          my_file = my_file_ca
+     elif region is "eastafrica":
+          my_file = my_file_ea
+     elif region is "southafrica":
+          my_file = my_file_ea
+
+     df = pd.read_csv(my_file)
+     df = df.dropna(axis='columns')
+     
+     country = str(country).title()
+     
+     df = df.astype('string')
+
+     df = df.set_index('Country')
+
+     selection = df.loc[country]
+
+     if "-" in country:
+          country = turn_to_text(country)
+
+
+     capital = selection['Capital']
+     pres_leader = selection['President/Leader']
+     language = selection['Language']
+     tribes_ethn = selection['Tribes/Ethnic Groups']
+     religion = selection['Religion']
+
+     return render_template('countrypage.html', ctry=country, cap=capital,
+                            pres=pres_leader, lang=language, tribes=tribes_ethn,
+                            relg = religion)
+     
      
 if __name__ == "__main__":
      app.run(debug=True) 
