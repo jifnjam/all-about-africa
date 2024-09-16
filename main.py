@@ -8,7 +8,7 @@ THIS_FOLDER = Path(__file__).parent.resolve()
 my_file_na = THIS_FOLDER / "/home/tobim/all-about-africa/northafrica.csv"
 my_file_wa = THIS_FOLDER / "/home/tobim/all-about-africa/westafrica.csv"
 my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/southafrica.csv"
-my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv"
+my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv" 
 my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
 
 # the code is too long. this results in internal sever errors after central africa
@@ -45,10 +45,17 @@ def insert_pic(pic, reg):
 def countries_deploy(region, country):
 
      region = str(region)
+     if region is "northafrica":
+          my_file = my_file_na
+     elif region is "westafrica":
+          my_file = my_file_wa
+     elif region is "centralafrica":
+          my_file = my_file_ca
+     elif region is "eastafrica":
+          my_file = my_file_ea
+     elif region is "southafrica":
+          my_file = my_file_ea
 
-     my_path = "/home/tobim/all-about-africa/" + region + ".csv"
-
-     my_file = THIS_FOLDER / my_path
      df = pd.read_csv(my_file)
      df = df.dropna(axis='columns')
      
