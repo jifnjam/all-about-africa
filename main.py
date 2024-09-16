@@ -11,6 +11,8 @@ my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/southafrica.csv"
 my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv" 
 my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
 
+global my_file
+
 # the code is too long. this results in internal sever errors after central africa
 
 app = Flask(__name__)
