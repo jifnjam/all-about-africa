@@ -11,8 +11,6 @@ my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/southafrica.csv"
 my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv" 
 my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
 
-global my_file
-
 # the code is too long. this results in internal sever errors after central africa
 
 app = Flask(__name__)
@@ -100,7 +98,7 @@ def countries(region, country):
      elif region is "eastafrica":
           df = pd.read_csv(my_file_ea)
           df = df.dropna(axis='columns')
-          
+
      elif region is "southafrica":
           df = pd.read_csv(my_file_sa)
           df = df.dropna(axis='columns')
