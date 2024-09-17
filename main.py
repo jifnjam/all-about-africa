@@ -106,7 +106,7 @@ def countries(region, country):
      
      country = str(country).title()
      
-     #df = df.astype('string')
+     df.astype('string')
 
      #df = df.set_index('Country')
 
