@@ -83,27 +83,25 @@ def countries(region, country):
 
      region = str(region)
      
-     if region is "northafrica":
+     if region == "northafrica":
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
 
-     elif region is "westafrica":
+     elif region == "westafrica":
           df = pd.read_csv(my_file_wa)
           df = df.dropna(axis='columns')
 
-     elif region is "centralafrica":
+     elif region == "centralafrica":
           df = pd.read_csv(my_file_ca)
           df = df.dropna(axis='columns')
 
-     elif region is "eastafrica":
+     elif region == "eastafrica":
           df = pd.read_csv(my_file_ea)
           df = df.dropna(axis='columns')
 
-     elif region is "southafrica":
+     elif region == "southafrica":
           df = pd.read_csv(my_file_sa)
           df = df.dropna(axis='columns')
-
-     print(region)
      
      country = str(country).title()
      
