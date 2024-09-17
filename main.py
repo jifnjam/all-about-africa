@@ -91,10 +91,10 @@ def countries(region, country):
           df.set_index('Country')
           country = country.capitalize()
 
-          selection = df.loc[country]
+          selection = df.loc[0]
 
-          if "-" in country:
-               country = turn_to_text(country)
+          #if "-" in country:
+          #     country = turn_to_text(country)
 
 
           capital = selection['Capital']
