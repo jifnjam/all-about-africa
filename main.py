@@ -82,7 +82,7 @@ def regions(region):
 def countries(region, country):
 
      region = str(region)
-
+     
      if region is "northafrica":
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
@@ -103,6 +103,7 @@ def countries(region, country):
           df = pd.read_csv(my_file_sa)
           df = df.dropna(axis='columns')
 
+     print(region)
      
      country = str(country).title()
      
