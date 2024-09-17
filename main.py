@@ -88,30 +88,33 @@ def countries(region, country):
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
           df.astype('string')
+          df.set_index('Country')
 
      elif region == "westafrica":
           df = pd.read_csv(my_file_wa)
           df = df.dropna(axis='columns')
           df.astype('string')
+          df.set_index('Country')
 
      elif region == "centralafrica":
           df = pd.read_csv(my_file_ca)
           df = df.dropna(axis='columns')
           df.astype('string')
+          df.set_index('Country')
 
      elif region == "eastafrica":
           df = pd.read_csv(my_file_ea)
           df = df.dropna(axis='columns')
           df.astype('string')
+          df.set_index('Country')
 
      elif region == "southafrica":
           df = pd.read_csv(my_file_sa)
           df = df.dropna(axis='columns')
           df.astype('string')
+          df.set_index('Country')
      
      country = country.capitalize()
-
-     #df = df.set_index('Country')
 
      selection = df.loc[country]
 
