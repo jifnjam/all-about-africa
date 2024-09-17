@@ -87,19 +87,19 @@ def countries(region, country):
      if region == "northafrica":
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
-          df.astype('string')
-          df.set_index('Country')
-
-          selection = df.iloc[country]
           
+          df = df.set_index('Country')
+          df = df.astype('string')
+     
+     
+          country = country.title()  
+          selection = df.loc[country]
+
+
           country = country.title()
 
-          #selection = df.loc[0]
-
-          
-
-          #if "-" in country:
-          #     country = turn_to_text(country)
+          if "-" in country:
+               country = turn_to_text(country)
 
 
           capital = selection['Capital']
