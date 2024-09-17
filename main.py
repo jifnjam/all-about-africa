@@ -20,11 +20,9 @@ def turn_to_text(choice): #for multi word country names
      choice = choice.replace("-", " ")
      choice = choice.title()
 
-     if "Of" in choice:
+     if "Of" or "And" or "The" in choice:
           choice = choice.replace("Of", "of")
-     elif "And" in choice:
           choice = choice.replace("And", "and")
-     elif "The" in choice:
           choice = choice.replace("The", "the")     
 
      return choice
