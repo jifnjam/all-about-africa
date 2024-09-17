@@ -82,7 +82,8 @@ def regions(region):
 def countries(region, country):
 
      region = str(region)
-     
+     country = str(country)
+
      if region == "northafrica":
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
@@ -108,7 +109,7 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
      
-     country = str(country).title()
+     country = country.capitalize()
 
      #df = df.set_index('Country')
 
