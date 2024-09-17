@@ -164,8 +164,6 @@ def countries(region, country):
 
           selection = df.loc[0]
 
-          selection = df.loc[country]
-
           if "-" in country:
                country = turn_to_text(country)
 
@@ -189,8 +187,6 @@ def countries(region, country):
           country = country.title()
 
           selection = df.loc[0]
-          
-          selection = df.loc[country]
 
           if "-" in country:
                country = turn_to_text(country)
