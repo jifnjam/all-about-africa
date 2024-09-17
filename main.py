@@ -89,11 +89,14 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
+
+          selection = df.iloc[country]
+          
           country = country.title()
 
           #selection = df.loc[0]
 
-          selection = df.loc[country]
+          
 
           #if "-" in country:
           #     country = turn_to_text(country)
