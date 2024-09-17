@@ -83,8 +83,6 @@ def countries(region, country):
 
      region = str(region)
 
-     df = None
-
      if region is "northafrica":
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
