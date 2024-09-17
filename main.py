@@ -89,7 +89,7 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
-          country = country.capitalize()
+          country = country.title()
 
           selection = df.loc[0]
 
@@ -112,7 +112,9 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
-          country = country.capitalize()
+          country = country.title()
+
+          selection = df.loc[0]
 
           selection = df.loc[country]
 
@@ -135,9 +137,9 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
-          country = country.capitalize()
+          country = country.title()
 
-          selection = df.loc[country]
+          selection = df.loc[0]
 
           if "-" in country:
                country = turn_to_text(country)
@@ -158,7 +160,9 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
-          country = country.capitalize()
+          country = country.title()
+
+          selection = df.loc[0]
 
           selection = df.loc[country]
 
@@ -182,8 +186,10 @@ def countries(region, country):
           df.astype('string')
           df.set_index('Country')
      
-          country = country.capitalize()
+          country = country.title()
 
+          selection = df.loc[0]
+          
           selection = df.loc[country]
 
           if "-" in country:
