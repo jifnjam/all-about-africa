@@ -89,48 +89,116 @@ def countries(region, country):
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
+          country = country.capitalize()
 
+          selection = df.loc[country]
+
+          if "-" in country:
+               country = turn_to_text(country)
+
+
+          capital = selection['Capital']
+          pres_leader = selection['President/Leader']
+          language = selection['Language']
+          tribes_ethn = selection['Tribes/Ethnic Groups']
+          religion = selection['Religion']
+
+          return render_template('countrypage.html', ctry=country, cap=capital,
+                              pres=pres_leader, lang=language, tribes=tribes_ethn,
+                              relg = religion)
+          
      elif region == "westafrica":
           df = pd.read_csv(my_file_wa)
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
+          country = country.capitalize()
 
+          selection = df.loc[country]
+
+          if "-" in country:
+               country = turn_to_text(country)
+
+
+          capital = selection['Capital']
+          pres_leader = selection['President/Leader']
+          language = selection['Language']
+          tribes_ethn = selection['Tribes/Ethnic Groups']
+          religion = selection['Religion']
+
+          return render_template('countrypage.html', ctry=country, cap=capital,
+                              pres=pres_leader, lang=language, tribes=tribes_ethn,
+                              relg = religion)
+     
      elif region == "centralafrica":
           df = pd.read_csv(my_file_ca)
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
+          country = country.capitalize()
 
+          selection = df.loc[country]
+
+          if "-" in country:
+               country = turn_to_text(country)
+
+
+          capital = selection['Capital']
+          pres_leader = selection['President/Leader']
+          language = selection['Language']
+          tribes_ethn = selection['Tribes/Ethnic Groups']
+          religion = selection['Religion']
+
+          return render_template('countrypage.html', ctry=country, cap=capital,
+                              pres=pres_leader, lang=language, tribes=tribes_ethn,
+                              relg = religion)
+     
      elif region == "eastafrica":
           df = pd.read_csv(my_file_ea)
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
+          country = country.capitalize()
 
+          selection = df.loc[country]
+
+          if "-" in country:
+               country = turn_to_text(country)
+
+
+          capital = selection['Capital']
+          pres_leader = selection['President/Leader']
+          language = selection['Language']
+          tribes_ethn = selection['Tribes/Ethnic Groups']
+          religion = selection['Religion']
+
+          return render_template('countrypage.html', ctry=country, cap=capital,
+                              pres=pres_leader, lang=language, tribes=tribes_ethn,
+                              relg = religion)
+     
      elif region == "southafrica":
           df = pd.read_csv(my_file_sa)
           df = df.dropna(axis='columns')
           df.astype('string')
           df.set_index('Country')
      
-     country = country.capitalize()
+          country = country.capitalize()
 
-     selection = df.loc[country]
+          selection = df.loc[country]
 
-     if "-" in country:
-          country = turn_to_text(country)
+          if "-" in country:
+               country = turn_to_text(country)
 
 
-     capital = selection['Capital']
-     pres_leader = selection['President/Leader']
-     language = selection['Language']
-     tribes_ethn = selection['Tribes/Ethnic Groups']
-     religion = selection['Religion']
+          capital = selection['Capital']
+          pres_leader = selection['President/Leader']
+          language = selection['Language']
+          tribes_ethn = selection['Tribes/Ethnic Groups']
+          religion = selection['Religion']
 
-     return render_template('countrypage.html', ctry=country, cap=capital,
-                            pres=pres_leader, lang=language, tribes=tribes_ethn,
-                            relg = religion)
+          return render_template('countrypage.html', ctry=country, cap=capital,
+                              pres=pres_leader, lang=language, tribes=tribes_ethn,
+                              relg = religion)
      
      
 if __name__ == "__main__":
