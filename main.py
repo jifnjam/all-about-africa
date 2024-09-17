@@ -84,7 +84,7 @@ def countries(region, country):
      region = str(region)
 
      df = None
-     
+
      if region is "northafrica":
           df = pd.read_csv(my_file_na)
           df = df.dropna(axis='columns')
@@ -108,9 +108,9 @@ def countries(region, country):
      
      country = str(country).title()
      
-     df = df.astype('string')
+     #df = df.astype('string')
 
-     df = df.set_index('Country')
+     #df = df.set_index('Country')
 
      selection = df.loc[country]
 
