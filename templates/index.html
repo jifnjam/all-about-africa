@@ -6,15 +6,10 @@
 
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <style>
-    h1 {
-      color: #00AF54;
-      text-align: center;
+    header {
+      color: #375F1B;
+      text-align: left;
       font-family: "Arial Black", sans-serif;
-      background-color: #ffffff;
-      border-radius: 20px;
-      max-width: fit-content;
-      margin: auto;
-      padding: auto;
     }
 
     h2 {
@@ -23,13 +18,15 @@
       /* background-color: #ff443a; */
       font-size: 50px;
       text-align: right;
-      padding-left: 20px;
-      padding-right: 20px;
     }
 
-    body {
-      background-color: #7fd8be;
-      /* background-color: #38b000; */
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+
+    #grad {
+      background-image: linear-gradient(to right, #66B032, #9BD770);
     }
 
     h4 {
@@ -38,14 +35,11 @@
       color: white;
     }
 
-    .region {
+    div.region {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-    }
-
-    .region>div {
       border: none;
       color: black;
       font-family: Arial, sans;
@@ -71,67 +65,68 @@
     }
 
     section {
-      background-color: #ffffff;
-      border: 5px solid #DD1C1A;
-      margin: 50px 25px 0px 25px;
       display: block;
-      border-radius: 20px;
     }
 
     p {
-      background-color: #ffffff;
       text-align: center;
       font-family: arial;
-      padding: 0px 15px;
-    }
-
-    .para {
-      background-color: #ffffff;
-      /* background-color: #ff443a; */
-      text-align: center;
-      font-family: arial;
-      color: black;
-      max-width: auto;
-      padding: 0px 20px;
     }
   </style>
 </head>
 
-<body>
+<body id="grad">
   <section>
-    <h1 style="font-size:500%;"> All About Africa </h1>
+    <header> All About Africa </header>
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="//cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+
+    <div id="chartdiv"></div>
+
+    <script>
+      /**
+       * ---------------------------------------
+       * This demo was created using amCharts 5.
+       *
+       * For more information visit:
+       * https://www.amcharts.com/
+       *
+       * Documentation is available at:
+       * https://www.amcharts.com/docs/v5/
+       * ---------------------------------------
+       */
+
+
+    </script>
+
+  </section>
+
+  <!--- <section>
     <div class="region">
-      <div><a href="/northafrica/">North Africa</a></div>
-      <div><a href="/westafrica/">West Africa</a></div>
-      <div><a href="/eastafrica/">East Africa</a></div>
-      <div><a href='/centralafrica/'>Central Africa</a></div>
-      <div><a href='/southafrica/'>South Africa</a></div>
-    </div>
-    <div>
-      <p style="font-family: 'Arial Black', sans-serif;font-size: 20px;"> Click on one of the region buttons to begin
-        your journey! </p>
+      <a href="/northafrica/">North Africa</a>
     </div>
 
-  </section>
+    <div class="region">
+      <a href="/westafrica/">West Africa</a>
+    </div>
 
-  <section style="background-color: #ffffff;border-radius:0px;">
-    <h2 style="text-align:left;"> About Us </h2>
-    <p class="para" style="text-align:left;">Hello, I'm Tobi! I manage allaboutafrica.com. I started this website
-      with the goal of making the awesome things about Africa awesome to everyone else! Hopefully, the longer you
-      spend here, the more you'll get to appreciate the world around you. Here there is information on
-      each country's geography, climate, cuisine, politics, history, demographics, and some fun facts. All of the
-      information
-      on allaboutafrica.com is intended to be wholly factual and work towards eliminating stereotypes about the
-      countries.
-    </p>
-    <h2 style="text-align:right"> Contact Us </h1>
-    <p class="para" style="text-align:right;">Github: @jifnjam </p>
-    <p class="para" style="text-align:right;">Twitter: @mintgentry</p>
-    <h2 style="text-align:left;"> Citations </h1>
-    <p class="para" style="text-align:left;">CiaFactBook</p>
-    <p class="para" style="text-align:left;">BBC</p>
-    <p class="para" style="text-align:left;">Access all resources used here at this notion site.</p>
-  </section>
+    <div class="region">
+      <a href="/eastafrica/">East Africa</a>
+    </div>
+
+    <div class="region">
+      <a href='/centralafrica/'>Central Africa</a>
+    </div>
+
+    <div class="region">
+      <a href='/southafrica/'>South Africa</a>
+    </div>
+
+  </section> --->
+
 </body>
 
 </html>
