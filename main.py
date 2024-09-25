@@ -10,8 +10,6 @@ my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/southafrica.csv"
 my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv" 
 my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
 
-my_css = THIS_FOLDER / "/home/tobim/all-about-africa/assets/css/base.css"
-my_js = THIS_FOLDER / "/home/tobim/all-about-africa/assets/js/main.js"
 
 # the code is too long. this results in internal sever errors after central africa
 
@@ -44,7 +42,7 @@ def insert_pic(pic, reg):
 
 @app.route('/')
 def home():
-     return render_template('index.html', js = my_js, css = my_css)
+     return render_template('index.html')
 
 @app.route('/<region>/')
 def regions(region):
