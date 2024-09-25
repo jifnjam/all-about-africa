@@ -7,11 +7,11 @@ import am5geodata_region_world_africaLow from "@amcharts/amcharts5-geodata/regio
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
 
-var root = am5.Root.new("chartdiv");
+let root = am5.Root.new("chartdiv");
 
 root.setThemes([am5themes_Animated.new(root)]);
 
-var chart = root.container.children.push(
+let chart = root.container.children.push(
   am5map.MapChart.new(root, {
     panX: "rotateX",
     wheelY: "none",
@@ -19,7 +19,7 @@ var chart = root.container.children.push(
   })
 );
 
-var continentSeries = chart.series.push(
+let continentSeries = chart.series.push(
   am5map.MapPolygonSeries.new(root, {
     geoJSON: am5geodata_continentsLow,
     exclude: ["antarctica"]
@@ -34,7 +34,7 @@ continentSeries.mapPolygons.template.setAll({
   strokeDasharray: [2]
 });
 
-var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
+let backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
 
 backgroundSeries.mapPolygons.template.setAll({
   fill: am5.color(0xffffff),
@@ -46,7 +46,7 @@ backgroundSeries.data.push({
   geometry: am5map.getGeoRectangle(90, 180, -90, -180)
 });
 
-var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
+let graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
 graticuleSeries.mapLines.template.setAll({
   strokeOpacity: 0.0
 });
@@ -60,10 +60,10 @@ chart.animate({
 });
 
 //Africa Map
-var afroot = am5.Root.new("afrchartdiv");
+let afroot = am5.Root.new("afrchartdiv");
 afroot.setThemes([am5themes_Animated.new(root)]);
 
-var afrchart = afroot.container.children.push(
+let afrchart = afroot.container.children.push(
   am5map.MapChart.new(afroot, {
     panX: "rotateX",
     wheelY: "none",
@@ -71,7 +71,7 @@ var afrchart = afroot.container.children.push(
   })
 );
 
-var afrpolygonSeries = afrchart.series.push(
+let afrpolygonSeries = afrchart.series.push(
   am5map.MapPolygonSeries.new(afroot, {
     geoJSON: am5geodata_region_world_africaLow,
     fill: am5.color(0x375f1b)
@@ -88,7 +88,7 @@ afrpolygonSeries.mapPolygons.template.states.create("hover", {
 });
 
 //North Africa Map
-var nadata = (window.am5geodata_region_world_africaLow = (function () {
+let nadata = (window.am5geodata_region_world_africaLow = (function () {
   const map = {
     type: "FeatureCollection",
     features: [
@@ -473,10 +473,10 @@ var nadata = (window.am5geodata_region_world_africaLow = (function () {
   return map;
 })());
 
-var naroot = am5.Root.new("nachartdiv");
+let naroot = am5.Root.new("nachartdiv");
 naroot.setThemes([am5themes_Animated.new(root)]);
 
-var nachart = naroot.container.children.push(
+let nachart = naroot.container.children.push(
   am5map.MapChart.new(naroot, {
     panX: "rotateX",
     wheelY: "none",
@@ -485,7 +485,7 @@ var nachart = naroot.container.children.push(
   })
 );
 
-var napolygonSeries = nachart.series.push(
+let napolygonSeries = nachart.series.push(
   am5map.MapPolygonSeries.new(naroot, {
     geoJSON: nadata,
     fill: am5.color(0x375f1b)
@@ -502,7 +502,7 @@ napolygonSeries.mapPolygons.template.states.create("hover", {
 });
 
 //West Africa Map
-var wadata = (window.am5geodata_region_world_africaLow = (function () {
+let wadata = (window.am5geodata_region_world_africaLow = (function () {
   const map = {
     type: "FeatureCollection",
     features: [
@@ -1085,10 +1085,10 @@ var wadata = (window.am5geodata_region_world_africaLow = (function () {
   return map;
 })());
 
-var waroot = am5.Root.new("wachartdiv");
+let waroot = am5.Root.new("wachartdiv");
 waroot.setThemes([am5themes_Animated.new(root)]);
 
-var wachart = waroot.container.children.push(
+let wachart = waroot.container.children.push(
   am5map.MapChart.new(waroot, {
     panX: "rotateX",
     wheelY: "none",
@@ -1097,7 +1097,7 @@ var wachart = waroot.container.children.push(
   })
 );
 
-var wapolygonSeries = wachart.series.push(
+let wapolygonSeries = wachart.series.push(
   am5map.MapPolygonSeries.new(waroot, {
     geoJSON: wadata,
     fill: am5.color(0x375f1b)
@@ -1114,7 +1114,7 @@ wapolygonSeries.mapPolygons.template.states.create("hover", {
 });
 
 //Central Africa Map
-var cadata = (window.am5geodata_region_world_africaLow = (function () {
+let cadata = (window.am5geodata_region_world_africaLow = (function () {
   const map = {
     type: "FeatureCollection",
     features: [
@@ -1601,10 +1601,10 @@ var cadata = (window.am5geodata_region_world_africaLow = (function () {
   return map;
 })());
 
-var caroot = am5.Root.new("cachartdiv");
+let caroot = am5.Root.new("cachartdiv");
 caroot.setThemes([am5themes_Animated.new(root)]);
 
-var cachart = caroot.container.children.push(
+let cachart = caroot.container.children.push(
   am5map.MapChart.new(caroot, {
     panX: "rotateX",
     wheelY: "none",
@@ -1613,7 +1613,7 @@ var cachart = caroot.container.children.push(
   })
 );
 
-var capolygonSeries = cachart.series.push(
+let capolygonSeries = cachart.series.push(
   am5map.MapPolygonSeries.new(caroot, {
     geoJSON: cadata,
     fill: am5.color(0x375f1b)
@@ -1630,7 +1630,7 @@ capolygonSeries.mapPolygons.template.states.create("hover", {
 });
 
 //East Africa Map
-var eadata = (window.am5geodata_region_world_africaLow = (function () {
+let eadata = (window.am5geodata_region_world_africaLow = (function () {
   const map = {
     type: "FeatureCollection",
     features: [
@@ -2384,10 +2384,10 @@ var eadata = (window.am5geodata_region_world_africaLow = (function () {
   return map;
 })());
 
-var earoot = am5.Root.new("eachartdiv");
+let earoot = am5.Root.new("eachartdiv");
 earoot.setThemes([am5themes_Animated.new(root)]);
 
-var eachart = earoot.container.children.push(
+let eachart = earoot.container.children.push(
   am5map.MapChart.new(earoot, {
     panX: "rotateX",
     wheelY: "none",
@@ -2396,7 +2396,7 @@ var eachart = earoot.container.children.push(
   })
 );
 
-var eapolygonSeries = eachart.series.push(
+let eapolygonSeries = eachart.series.push(
   am5map.MapPolygonSeries.new(earoot, {
     geoJSON: eadata,
     fill: am5.color(0x375f1b)
@@ -2413,7 +2413,7 @@ eapolygonSeries.mapPolygons.template.states.create("hover", {
 });
 
 //South Africa Map
-var sadata = (window.am5geodata_region_world_africaLow = (function () {
+let sadata = (window.am5geodata_region_world_africaLow = (function () {
   const map = {
     type: "FeatureCollection",
     features: [
@@ -2625,10 +2625,10 @@ var sadata = (window.am5geodata_region_world_africaLow = (function () {
   return map;
 })());
 
-var saroot = am5.Root.new("sachartdiv");
+let saroot = am5.Root.new("sachartdiv");
 saroot.setThemes([am5themes_Animated.new(root)]);
 
-var sachart = saroot.container.children.push(
+let sachart = saroot.container.children.push(
   am5map.MapChart.new(saroot, {
     panX: "rotateX",
     wheelY: "none",
@@ -2637,7 +2637,7 @@ var sachart = saroot.container.children.push(
   })
 );
 
-var sapolygonSeries = sachart.series.push(
+let sapolygonSeries = sachart.series.push(
   am5map.MapPolygonSeries.new(saroot, {
     geoJSON: sadata,
     fill: am5.color(0x375f1b)
