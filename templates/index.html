@@ -2,131 +2,225 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All About Africa</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <style>
-    header {
-      color: #375F1B;
-      text-align: left;
-      font-family: "Arial Black", sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    h2 {
-      color: #00AF54;
-      font-family: "Arial Black", sans-serif;
-      /* background-color: #ff443a; */
-      font-size: 50px;
-      text-align: right;
+    .panel.align-top {
+      align-items: flex-start;
+    }
+
+    .panel h1 {
+      font-size: 2.5em;
+      color: #1B3409;
+      font-weight: 300;
+      font-family: "Luckiest Guy", system-ui;
+      margin: 0 auto;
+    }
+
+    .panel h2 {
+      font-size: 1.5em;
+      color: white;
+      font-weight: 150;
+      font-family: "Noto", sans;
+    }
+
+    .panel h3 {
+      font-size: 1.2em;
+      color: white;
+      font-family: "Exo", sans-serif;
+      font-weight: 300;
+      margin: 0 auto;
+    }
+
+    .panel.description {
+      padding-bottom: 60px;
+    }
+
+    .panel p {
+      color: #EBF7E3;
+      font-weight: 400;
+      text-align: left;
+      font-size: 0.8em;
+      line-height: 1.5em;
+      margin: 0.3em 0 1em 0;
+    }
+
+    .panel p strong {
+      color: white;
+      font-weight: 400;
+    }
+
+    .green {
+      background-image: linear-gradient(to right, #66B032, #9BD770);
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: auto;      
+      -webkit-overflow-scrolling: touch;
+
+      font-family: "Signika Negative", sans-serif, Arial;
+    }
+
+    .panel {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.5em;
+      text-align: center;
+      color: white;
+      position: relative;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    body {
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    h1,
+    h2,
+    p {
+      max-width: 800px;
     }
 
     #chartdiv {
       width: 100%;
-      height: 500px;
+      height: 95vh;
     }
 
-    #grad {
-      background-image: linear-gradient(to right, #66B032, #9BD770);
+    #afrchartdiv {
+      width: 100%;
+      height: 95vh;
     }
 
-    h4 {
-      background-color: #e71d36;
-      /* background-color: #ff443a; */
-      color: white;
+    #nachartdiv {
+      margin-left: 2em;
+      width: 100%;
+      height: 95vh;
     }
 
-    div.region {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      border: none;
-      color: black;
-      font-family: Arial, sans;
-      background-color: #00AF54;
-      /* background-color: #ff443a; */
-      margin: 20px;
-      width: 125px;
-      text-align: center;
-      font-size: 20px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      border-radius: 15px;
-      line-height: 55px;
+    #wachartdiv {
+      margin-left: 2em;
+      width: 100%;
+      height: 95vh;
     }
 
-    .region>div:hover {
-      background-color: #e71d36;
+    #cachartdiv {
+      margin-left: 2em;
+      width: 100%;
+      height: 95vh;
+    }
+
+    #eachartdiv {
+      margin-left: 2em;
+      width: 100%;
+      height: 95vh;
+    }
+
+    #sachartdiv {
+      margin-left: 2em;
+      width: 100%;
+      height: 95vh;
     }
 
     a {
-      color: #000000;
       text-decoration: none;
-    }
-
-    section {
-      display: block;
-    }
-
-    p {
-      text-align: center;
-      font-family: arial;
+      color: white;
     }
   </style>
 </head>
 
-<body id="grad">
-  <section>
-    <header> All About Africa </header>
+<body>
 
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-    <script src="//cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-
-    <div id="chartdiv"></div>
-
-    <script>
-      /**
-       * ---------------------------------------
-       * This demo was created using amCharts 5.
-       *
-       * For more information visit:
-       * https://www.amcharts.com/
-       *
-       * Documentation is available at:
-       * https://www.amcharts.com/docs/v5/
-       * ---------------------------------------
-       */
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 
-    </script>
+  <script src="//cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="//cdn.amcharts.com/lib/5/map.js"></script>
+  <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+  <script src="//cdn.amcharts.com/lib/5/geodata/region/world/africaLow.js"></script>
+  <script src="//cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+  <script src="//cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-  </section>
+  <script src="/home/tobim/all-about-africa/main.js"></script>
 
-  <!--- <section>
-    <div class="region">
-      <a href="/northafrica/">North Africa</a>
+  <div class="container">
+    <div class="description panel green">
+      <div>
+        <h1>All About Africa</h1>
+      </div>
+      <div id="chartdiv"></div>
     </div>
 
-    <div class="region">
-      <a href="/westafrica/">West Africa</a>
-    </div>
+    <section class="description panel green">
+      <div>
+        <h2>The Continent, Not the Country</h2>
+        <h3>Scroll down to Explore All About It</h3>
 
-    <div class="region">
-      <a href="/eastafrica/">East Africa</a>
-    </div>
+      </div>
+    </section>
 
-    <div class="region">
-      <a href='/centralafrica/'>Central Africa</a>
-    </div>
+    <section class="description panel green">
+      <h2>Africa's Population of over 1.4 Billion is split up into 5 different regions, covering over 20% of the Earth's
+        land.</h2>
+      <div id="afrchartdiv"></div>
+    </section>
 
-    <div class="region">
-      <a href='/southafrica/'>South Africa</a>
-    </div>
+    <section class="description panel green">
+      <h2><a href="/northafrica/">North Africa</a></h2>
+      <div id="nachartdiv"></div>
+    </section>
 
-  </section> --->
+    <section class="description panel green">
+      <h2><a href="/westafrica/">West Africa</a></h2>
+      <div id="wachartdiv"></div>
+    </section>
 
+    <section class="description panel green">
+      <h2><a href="/centralafrica/"> Central Africa</a></h2>
+      <div id="cachartdiv"></div>
+    </section>
+
+    <section class="description panel green">
+      <h2><a href="/eastafrica/"> East Africa </a></h2>
+      <div id="eachartdiv"></div>
+    </section>
+
+    <section class="description panel green">
+      <h2><a href="/southafrica/">South Africa</a></h2>
+      <div id="sachartdiv"></div>
+    </section>
+
+    <section class="description panel green" style="flex-direction:column;">
+      <h2>About Us</h2>
+      <p>All About Africa is designed to be an educational website solely about Africa, dispelling stereotypes and
+        opening up a different kind of worldview. The information stems from reputed news organizations, government
+        websites and websites representing different minority groups and regions. This is not intended to be used
+        inappropriately and is solely for self-education from kids to adults.
+      <p>
+
+    </section>
+
+  </div>
 </body>
 
 </html>
