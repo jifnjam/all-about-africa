@@ -1,5 +1,5 @@
 import {gsap} from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import am5 from "@amcharts/amcharts5";
 import am5map from "@amcharts/amcharts5/map";
 import am5geodata_continentsLow from "@amcharts/amcharts5-geodata/continentsLow";
