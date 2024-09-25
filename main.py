@@ -1,6 +1,5 @@
 import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for, Response, make_response
-from fileinput import filename
 
 # for pythonanywhere
 from pathlib import Path
