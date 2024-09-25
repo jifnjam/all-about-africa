@@ -1,3 +1,12 @@
+import {gsap} from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import am5 from "@amcharts/amcharts5";
+import am5map from "@amcharts/amcharts5/map";
+import am5geodata_continentsLow from "@amcharts/amcharts5-geodata/continentsLow";
+import am5geodata_region_world_africaLow from "@amcharts/amcharts5-geodata/region/africaLow";
+import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+
+
 var root = am5.Root.new("chartdiv");
 
 root.setThemes([am5themes_Animated.new(root)]);
