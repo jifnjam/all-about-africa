@@ -18,16 +18,70 @@
 
 <body>
   <!--add js file-->
-  <script text="type/javascript" src="/static/js/main.js"></script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
   <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/map.js"></script> 
+  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
   <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
   <script src="//cdn.amcharts.com/lib/5/geodata/region/world/africaLow.js"></script>
+  <script>
+    // use a script tag or an external JS file
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.registerPlugin(ScrollTrigger)
+      var panels = gsap.utils.toArray(".panel"),
+        observer = ScrollTrigger.normalizeScroll(true),
+        scrollTween;
+
+      // on touch devices, ignore touchstart events if there's an in-progress tween so that touch-scrolling doesn't interrupt and make it wonky
+      document.addEventListener(
+        "touchstart",
+        (e) => {
+          if (scrollTween) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        },
+        { capture: true, passive: false }
+      );
+
+      function goToSection(i) {
+        scrollTween = gsap.to(window, {
+          scrollTo: { y: i * innerHeight, autoKill: false },
+          onStart: () => {
+            observer.disable(); // for touch devices, as soon as we start forcing scroll it should stop any current touch-scrolling, so we just disable() and enable() the normalizeScroll observer
+            observer.enable();
+          },
+          duration: 1,
+          onComplete: () => (scrollTween = null),
+          overwrite: true
+        });
+      }
+
+      panels.forEach((panel, i) => {
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top bottom",
+          end: "+=199%",
+          onToggle: (self) => self.isActive && !scrollTween && goToSection(i)
+        });
+      });
+
+      // just in case the user forces the scroll to an inbetween spot (like a momentum scroll on a Mac that ends AFTER the scrollTo tween finishes):
+      ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        snap: 1 / (panels.length - 1)
+      });
+
+    });
+
+  </script>
+
+  <!--<script src="/static/js/main.js"></script>-->
 
   <div class="container">
     <div class="description panel green">
