@@ -35,14 +35,6 @@ def turn_to_html(choice):
      spread = "-".join(spread)
      return spread
 
-def pic_finder(reg, country):
-     if " " in country:
-          country = country.replace(" ", "")
-     
-     my_pic = "static/" + "img/" + "Flag Pictures/" + reg + "/Flag_of_" + country + ".png"
-     
-     return my_pic
-
 @app.route('/')
 def home():
      return render_template('index.html')
