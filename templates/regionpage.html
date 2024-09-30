@@ -8,11 +8,11 @@
     <div class="grid-item">
         <a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i | title}}</a></div>
     
-    <div class="grid-item">
+<!--   <div class="grid-item">
         {% if "l" in title_lower %}
             {% set reggy= title_lower | replace("l", "l ") | title}
             <img src="/static/img/{{reggy}}/{{pic_name}}.png" alt="Picture of {{pic_name}}" width="250" height="300">
-        {% endif %}
+        {% endif %}--> 
     </div>
 {% endfor %}
 
