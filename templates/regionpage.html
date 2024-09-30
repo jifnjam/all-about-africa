@@ -6,7 +6,7 @@
     {% set chtext = i %}
     <div class="grid-item">
         <a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i | title}}</a>
-        <img src="" alt="Girl with ajcket">
+        <img src="static/img/{{title_lower}}/{{i}}.png" alt="Country of {{i}}">
     </div> 
 {% endfor %}
 
