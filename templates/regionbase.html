@@ -4,41 +4,64 @@
 <head>
   <title>{{title}}</title>
 
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
   <meta charset="UTF-8">
   <meta name="description" content="Africa Informational Site">
   <meta name="keywords" content="Africa, country, countries, North Africa, West Africa, East Africa, Central Africa, South Africa">
 
   <style>
-    h1 {
-      color: #00AF54;
-      text-align: center;
+    header {
+      color: #EBF7E3;
       font-family: "Arial Black", sans-serif;
-      font-size: 300%;
-      display: block;
+      font-size: 3em;
+      text-align: center;
+      position: relative;
+      margin: 20px;
     }
 
     body {
-      background-color: #7fd8be;
-    }
-
-    h4 {
-      background-color: #e71d36;
-      color: white;
+      background-image: linear-gradient(to right, #66B032, #9BD770);
+      margin: 0;
     }
 
     h2 {
-      color: #ffffff;
+      color: #EBF7E3;
       font-family: arial;
       padding-left: 25px;
+      text-align: center;
+      font-size: 2em;
+      position: relative;
+    }
+
+    .grid-container {
+      display: grid;
+      column-gap: 50px;
+      row-gap: 25px;
+      grid-template-columns: 50% 50%;
+      color: #EBF7E3;
+      font-size: 1.2em;
+      position: relative;
+    }
+
+    .grid-item {
+      text-align: center;
+      padding-left: 20px;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
     }
 
     .homeul {
       list-style-type: none;
       margin: 0;
-      padding: 0;
+      padding: 0px;
       overflow: hidden;
-      background-color: #00AF54;
+      /*background-color: #375F1B;*/
+      background-image: linear-gradient(to right, #66B032, #9BD770);
       position: sticky;
       position: -webkit-sticky;
       top: 0;
@@ -60,50 +83,16 @@
       cursor: pointer;
     }
 
-    .homeli a:hover:not(.active) {
-      background-color: #e71d36;
+    .homeli a:hover {
       text-decoration: none;
-    }
-
-    .homeli a:active {
-      background-color: #637081;
-      text-decoration: none;
-    }
-
-    section {
-      background-color: #ffffff;
-    }
-
-    .grid-container {
-      display: grid;
-      column-gap: 75px;
-      row-gap: 50px;
-      grid-template-columns: auto;
-    }
-
-    grid-item {
-      text-align: left;
-      padding-left: 20px;
-      font-size: 20px;
-      text-decoration: none;
-      grid-auto-flow: row;
-
-    }
-
-    a {
-      text-decoration: none;
-      color: #000000;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: #000000;
-
+      opacity: 1;
+      border-bottom: 1px solid white;
     }
   </style>
 </head>
 
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
   <div>
     <ul class="homeul">
@@ -116,18 +105,10 @@
     </ul>
   </div>
 
-  <section>
-    <div>
-      <h1>{{title}}</h1>
-    </div>
+  <header>{{title}}</header>
+  <h2>{{title}}'s Countries listed A-Z</h2>
+  <div class="grid-container">{% block content %}{% endblock %}</div>
 
-    <h2> {{title}}'s Countries listed A-Z</h2>
-
-    <div class="grid-container">
-      {% block content %}{% endblock %}
-    </div>
-
-  </section>
 </body>
 
 </html>

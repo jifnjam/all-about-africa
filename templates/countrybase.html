@@ -4,135 +4,57 @@
 <head>
      <title>{{ctry}}</title>
 
-     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+     <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
 
      <meta charset="UTF-8">
      <meta name="description" content="Africa Informational Site">
      <meta name="keywords"
           content="Africa, country, countries, North Africa, West Africa, East Africa, Central Africa, South Africa">
+     <script src="https://kit.fontawesome.com/70857d9677.js" crossorigin="anonymous"></script>
 
      <style>
           h1 {
-               color: #00AF54;
+               color: #EBF7E3;
                text-align: center;
                font-family: "Arial Black", sans-serif;
                font-size: 300%;
-               display: block;
           }
 
           body {
-               background-color: #7fd8be;
+               background-image: linear-gradient(to right, #66B032, #9BD770);
+               margin: 0;
           }
 
           h2 {
-
-               color: #4392f1;
+               color: #EBF7E3;
                font-family: arial;
-               font-size: 35px;
-               padding-left: 25px;
-               text-align: left;
           }
 
-          
-
-          .homeul {
-               list-style-type: none;
-               margin: 0;
-               padding: 0;
-               overflow: hidden;
-               background-color: #00AF54;
-               position: sticky;
-               position: -webkit-sticky;
-               top: 0;
-               width: 100%;
-          }
-
-          .homeli {
-               float: left;
-          }
-
-          .homeli a {
-               display: block;
-               color: white;
-               font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-               text-align: center;
-               padding: 14px 16px;
-               text-decoration: none;
-               transition-duration: 0.4s;
-               cursor: pointer;
-          }
-
-          .homeli a:hover:not(.active) {
-               background-color: #e71d36;
-               text-decoration: none;
-          }
-
-          .homeli a:active {
-               background-color: #637081;
-               text-decoration: none;
-          }
-
-          section {
-               background-color: #ffffff;
-               height:fit-content;
-
-          }
-
-          .grid-container {
-               display: grid;
-               grid-gap: 20px;
-               grid-template-rows: auto auto auto auto auto auto;
-               grid-template-columns: 50% 50%;
-          }
-
-          .grid-container>div {
-               text-align: center;
-               padding: 20px;
-               font-size: 20px;
-          }
-
-          .item1 {
-               grid-column: 1 / span 1;
-          }
-
-          .item2 {
-               grid-column: 1 / span 1;
-          }
-
-          .item3 {
-               grid-column: 1 / span 1;
-          }
-
-          .item4 {
-               grid-column: 1 / span 1;
-          }
-
-          .item5 {
-               grid-column: 1 / span 1;
-          }
-
-          .item6 {
-               grid-column: 1 / span 1;
-          }
-          
-          .item7 {
-               grid-column: 1 / span 1;
-          }
-
-          img {
-               grid-column-start: 2;
-               grid-row: 1 / 2;
-               max-width: 100%;
-               height: auto;
-          }
-          
           p {
-               color:#000000;
-               padding: 0px 25px;
                text-align: left;
+               color: white;
+               font-family: verdana;
+               padding: 5px;
+               display: block;
           }
 
-    </style>
+          .hbtn {
+               display: inline-block;
+               color: white;
+               background-color: #66B032;
+               padding: 12px;
+               cursor: pointer;
+               border: none;
+               font-size: 16px;
+
+
+          }
+
+          .hbtn:hover {
+               background-color: navy;
+               border-bottom: 3px solid white;
+          }
+     </style>
 </head>
 
 <body>
@@ -145,50 +67,46 @@
                <li class="homeli"><a class='home' href="/eastafrica/">East Africa</a></li>
                <li class="homeli"><a class='home' href="/centralafrica/">Central Africa</a></li>
           </ul>
-          
+
      </div>
 
      <section>
           <h1>{{ctry}}</h1>
-          <div class="grid-container">
-               <div class="item1">
-                    <h2>General Stuff</h2>
-                    <p>Capital: {{cap}}</p>
-                    <p>President/Leader: {{pres}}</p>
-                    <p>Language: {{lang}}</p>
-                    
-               </div>
-
-               <img src={{htpic}}>
-
-
-               <div class="item2">
-                    <h2>Geography</h2>
-               </div>
-
-               <div class="item3">
-                    <h2>History</h2>
-               </div>
-
-               <div class="item4">
-                    <h2>Culture</h2>
-                    <p>Ethnic Groups: {{tribes}}</p>
-                    <p>Religion: {{relg}}</p>
-               </div>
-
-               <div class="item5">
-                    <h2>Climate</h2>
-               </div>
-
-               <div class="item6">
-                    <h2>Economy</h2>
-               </div>
-
-               <div class="item7">
-                    <h2>Fun Facts</h2>
-               </div>
+          <div>
+               <h2>General Stuff</h2>
+               <p>Capital: {{cap}}</p>
+               <p>President/Leader: {{pres}}</p>
+               <p>Language: {{lang}}</p>
 
           </div>
+
+          <div>
+               <h2>Geography</h2>
+          </div>
+
+          <div>
+               <h2>History</h2>
+          </div>
+
+          <div>
+               <h2>Culture</h2>
+               <p>Ethnic Groups: {{tribes}}</p>
+               <p>Religion: {{relg}}</p>
+          </div>
+
+          <div>
+               <h2>Climate</h2>
+          </div>
+
+          <div>
+               <h2>Economy</h2>
+          </div>
+
+          <div>
+               <h2>Fun Facts</h2>
+          </div>
+
+
           {% block content %}{% endblock %}
      </section>
 
