@@ -4,7 +4,7 @@
 
 {% for i in data %}
     {% set chtext = i %}
-    {% set pic_name = chtext %}
+    <!--{% set pic_name = chtext %}-->
     <div class="grid-item">
         <a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i | title}}</a>
 <!--       {% if "l" in {{title_lower}} %}
