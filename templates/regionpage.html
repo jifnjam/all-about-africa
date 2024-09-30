@@ -5,7 +5,9 @@
 {% for i in data %}
     {% set chtext = i %}
     <div class="grid-item">
-        <a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i | title}}</a></div> 
+        <a href = "/{{title_lower}}/{{chtext.split() | join ('-') | lower}}/" target="_self">{{i | title}}</a>
+        <img src="" alt="Girl with ajcket">
+    </div> 
 {% endfor %}
 
 {% endblock %}
