@@ -1,5 +1,6 @@
 import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for, Response, make_response
+from PIL import Image
 
 # for pythonanywhere
 from pathlib import Path
@@ -34,10 +35,12 @@ def turn_to_html(choice):
      spread = "-".join(spread)
      return spread
 
-def insert_pic(pic, reg):
-     my_path = "/home/tobim/all-about-africa/Flag Pictures/" 
-     my_path = my_path + reg + pic
-     my_pic = THIS_FOLDER / my_path
+def pic_finder(reg, country):
+     if " " in country:
+          country = country.replace(" ", "")
+     
+     my_pic = "static/" + "img/" + "Flag Pictures/" + reg + "/Flag_of_" + country + ".png"
+     
      return my_pic
 
 @app.route('/')
@@ -111,6 +114,7 @@ def countries(region, country):
      df = df.set_index('Country')
      df = df.astype('string')
      
+     pic_ctry = country
      
      country = turn_to_text(country) 
      selection = df.loc[country]
@@ -122,9 +126,19 @@ def countries(region, country):
      tribes_ethn = selection['Tribes/Ethnic Groups']
      religion = selection['Religion']
 
+     if "l" in region:
+          region = region.replace("l", "l ")
+          pic_path = pic_finder(region, pic_ctry)
+     elif "t" in region:
+          region = region.replace("t", "t ")
+          pic_path = pic_finder(region, pic_ctry)
+     elif "h" in region:
+          region = region.replace("h", "h ")
+          pic_path = pic_finder(region, pic_ctry)
+
      return render_template('countrypage.html', ctry=country, cap=capital,
                               pres=pres_leader, lang=language, tribes=tribes_ethn,
-                              relg = religion)     
+                              relg = religion, pic_name=pic_path)     
      
 if __name__ == "__main__":
      app.run(debug=True) 
