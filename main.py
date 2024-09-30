@@ -65,6 +65,7 @@ def regions(region):
      ea_df = pd.read_csv(my_file_ea) # deployment
      ea_ctrydf = ea_df['Country'].str.lower()
 
+     
      #change <country> into blank-blank-blank wording
      if region == 'northafrica':
           return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf) 
@@ -114,8 +115,7 @@ def countries(region, country):
      df = df.set_index('Country')
      df = df.astype('string')
      
-     pic_ctry = country
-     
+
      country = turn_to_text(country) 
      selection = df.loc[country]
 
@@ -126,19 +126,10 @@ def countries(region, country):
      tribes_ethn = selection['Tribes/Ethnic Groups']
      religion = selection['Religion']
 
-     if "l" in region:
-          region = region.replace("l", "l ")
-          pic_path = pic_finder(region, pic_ctry)
-     elif "t" in region:
-          region = region.replace("t", "t ")
-          pic_path = pic_finder(region, pic_ctry)
-     elif "h" in region:
-          region = region.replace("h", "h ")
-          pic_path = pic_finder(region, pic_ctry)
 
      return render_template('countrypage.html', ctry=country, cap=capital,
                               pres=pres_leader, lang=language, tribes=tribes_ethn,
-                              relg = religion, pic_name=pic_path)     
+                              relg = religion)     
      
 if __name__ == "__main__":
      app.run(debug=True) 
