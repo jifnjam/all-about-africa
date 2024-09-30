@@ -57,10 +57,20 @@ def regions(region):
      ea_df = pd.read_csv(my_file_ea) # deployment
      ea_ctrydf = ea_df['Country'].str.lower()
 
+     if region == 'northafrica':
+          reggy = "North Africa"
+     elif region == 'eastafrica':
+          reggy = "East Africa"
+     elif region == 'westafrica':
+          reggy = "West Africa"
+     elif region == 'centralafrica':
+          reggy = "Central Africa"
+     elif region == 'southafrica': 
+          reggy = "South Africa"
      
      #change <country> into blank-blank-blank wording
      if region == 'northafrica':
-          return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf) 
+          return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf, regpic=reggy) 
      elif region == 'eastafrica':
           return render_template('regionpage.html', title="East Africa", title_lower=region, data=ea_ctrydf)
      elif region == 'westafrica':
