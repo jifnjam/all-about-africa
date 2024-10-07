@@ -7,235 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <link href="static/css/base.css" rel="stylesheet">
 </head>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: Exo, sans;
-    margin: 0;
-  }
-
-  /* Navigation Bar */
-  .navbar {
-    background-color: #f34213;
-    overflow: hidden;
-    width: 100%;
-    top: 0;
-    transition-duration: 0.4s;
-  }
-
-  .navbar a {
-    float: left;
-    padding: 14px 16px;
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    text-align: center;
-  }
-
-  .dropdown .dropbtn {
-    cursor: pointer;
-    font-size: 24px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: inherit;
-    transition-duration: 0.4s;
-  }
-
-  .navbar a:hover {
-    background-color: inherit;
-    text-decoration: underline;
-  }
-
-  .dropdown:hover .dropbtn,
-  .dropbtn:focus {
-    background-color: inherit;
-    text-decoration: underline;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f5653d;
-    min-width: 150px;
-    z-index: 2;
-    opacity: 1;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #ffbc42;
-    color: black;
-  }
-
-  .show {
-    display: block;
-  }
-
-  /* Title Cover*/
-  header {
-    background-color: #ffffff;
-    background-image: linear-gradient(to bottom, #f34213, #ffbc42, #60992d);
-    text-align: center;
-    width: 100%;
-    height: fit-content;
-    position: relative;
-    z-index: 0;
-    padding: 0;
-  }
-
-  header>h1 {
-    font-size: 5em;
-    opacity: 1;
-    font-family: Exo, sans-serif;
-    color: white;
-    z-index: 2;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-  }
-
-  #chartdiv {
-    width: 100%;
-    height: 70vh;
-    position: relative;
-    z-index: 0;
-  }
-
-  #afrchartdiv {
-    width: 100%;
-    height: 80vh;
-    margin-bottom: 100px;
-  }
-
-  #realaf {
-    font-size: 1.5em;
-    font-family: "Comic Sans MS", sans;
-    color: night;
-  }
-
-  #begin {
-    background-color: #60992d;
-    text-align: left;
-    width: 100%;
-    max-height: fit-content;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    font-family: Exo, sans;
-    color: #ffffff;
-  }
-
-  #begin h1 {
-    text-align: inherit;
-    font-size: 2em;
-    font-family: inherit;
-    color: inherit;
-
-  }
-
-  #begin h3 {
-    text-align: inherit;
-    font-size: 1.5em;
-    font-family: inherit;
-    color: inherit;
-    margin: 50px;
-  }
-
-  #begin p {
-    text-align: inherit;
-    font-size: 1em;
-    font-family: inherit;
-    color: inherit;
-  }
-
-  .imgcontainer {
-    display: grid;
-    grid-template-columns: auto auto;
-    background-color: #ffbc42;
-    column-gap: 10px;
-    padding: 50px;
-    margin: 50px;
-    width: 100%;
-    height: fit-content;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .imgitem {
-    padding: 20px;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .btn {
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 32px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-
-  .regcontainer {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-bottom: 50px;
-    margin-top: 50px;
-  }
-
-  .regitem {
-    border: 1px solid #ffbc42;
-    border-radius: 20px;
-    background-color: #ffbc42;
-    margin: 20px;
-  }
-
-  .regitem:hover {
-    text-decoration: underline;
-  }
-
-  .footer-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f34213;
-    min-height: 200px;
-    max-height: fit-content;
-    position: relative;
-  }
-
-  .footer-container>div>a {
-    color: white;
-    width: 100%;
-    margin: 10px;
-    text-align: center;
-    min-height: 100px;
-    max-height: fit-content;
-    font-size: 30px;
-    text-decoration: none;
-  }
-
-  .footer-container>div>a:hover {
-    text-decoration: underline;
-  }
-
-</style>
 
 <body>
 
@@ -412,6 +185,11 @@
   </header>
 
   <div id="begin">
+    <h1> P.S. AllAboutAfrica is still in the development stages and will not be fully accessible until all information has been 
+      appropriately proofread and cited. Expect to access the full version of AllAboutAfrica by October 20, 2024. You can access
+      the GitHub for AllAboutAfrica <a style="color:white;" href="https://github.com/jifnjam/all-about-africa">here</a> to see
+      all templates, data, and licensure. Thank you for your cooperation.
+    </h1>
     <h1>Often Misunderstood and Stereotyped.</h1>
     <h3>Africa's population of over 1.4 Billion is split up into over 5 different regions, covering over 20% of the
       Earth's landmass and housing over 3,000 languages. Each of the 54 countries of Africa have delicious food, storied
@@ -427,17 +205,22 @@
     </div>
     <h3>Despite this, people may have preconceived stereotypes about Africa such as Africa being filled with poor,
       diseased, and uneducated people. That Africans speak "African", cities aren't present in Africa, internet isn't
-      common, and that a desert covers the country.
+      common, and that a desert covers the whole continent.
     </h3>
     <h3>These are quite negative and don't properly highlight ALL of the aspects of Africa and its peoples. All About
-      Africa intends to tell its visitors about Africa without the presence of these stereotypes and highlight the
-      positive influences made by Africa all over the world.</h3>
+      Africa intends to highlight the positive things about Africa and disprove negative stereotypes with information from it list of 
+      trusted sources.</h3>
+    <h3>Each of the 5 regions link to an informational page about the region, its countries, and 
+      unknown facts that are notable to learn about as well.
+    </h3>
+    <h3>More detailed and accurate information about the countries may be found from our list of sources.</h3>
+
     <div class="regcontainer">
-      <a href="North Africa" class="btn regitem">North Africa</a>
-      <a class="btn regitem" href="West Africa">West Africa</a>
-      <a class="btn regitem" href="Central Africa">Central Africa</a>
-      <a class="btn regitem" href="East Africa">East Africa</a>
-      <a class="btn regitem" href="South Africa">South Africa</a>
+      <a class="btn regitem" href="/northafrica/">North Africa</a>
+      <a class="btn regitem" href="/westafrica/">West Africa</a>
+      <a class="btn regitem" href="/centralafrica/">Central Africa</a>
+      <a class="btn regitem" href="/eastafrica/">East Africa</a>
+      <a class="btn regitem" href="/southafrica/">South Africa</a>
     </div>
     <div id="afrchartdiv"></div>
   </div>
