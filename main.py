@@ -5,14 +5,9 @@ from PIL import Image
 # for pythonanywhere
 from pathlib import Path
 THIS_FOLDER = Path(__file__).parent.resolve()
-my_file_na = THIS_FOLDER / "/home/tobim/all-about-africa/northafrica.csv"
-my_file_wa = THIS_FOLDER / "/home/tobim/all-about-africa/westafrica.csv"
-my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/southafrica.csv"
-my_file_ca = THIS_FOLDER / "/home/tobim/all-about-africa/centralafrica.csv" 
-my_file_ea = THIS_FOLDER / "/home/tobim/all-about-africa/eastafrica.csv"
+my_file_ma = THIS_FOLDER / "/home/tobim/all-about-africa/masterafrica.csv"
+my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/stereotypes.xlsx"
 
-
-# the code is too long. this results in internal sever errors after central africa
 
 app = Flask(__name__)
 
@@ -39,99 +34,62 @@ def turn_to_html(choice):
 def home():
      return render_template('index.html')
 
-@app.route('/<region>/')
-def regions(region):
+@app.route('/<stereotype>/')
+def stereotypes(stereo):
 
-     na_df = pd.read_csv(my_file_na) # deployment
-     na_ctrydf = na_df['Country'].str.lower()
+     stereo_df = pd.read_excel(my_file_sa)
 
-     wa_df = pd.read_csv(my_file_wa) # deployment
-     wa_ctrydf = wa_df['Country'].str.lower()
+     if stereo == 'economy':
+          sterry = "Economy"
+          stereo_df = stereo_df.loc[0]['Economy']
+     elif stereo == 'landscape':
+          sterry = "Landscape"
+          stereo_df = stereo_df.loc[0]['Landscape']
+     elif stereo == 'climate':
+          sterry = "Climate"
+          stereo_df = stereo_df.loc[0]['Climate']
+     elif stereo == 'tecnology':
+          sterry = "Technology"
+          stereo_df = stereo_df.loc[0]['Technology']
+     elif stereo == 'government': 
+          sterry = "Government"
+          stereo_df = stereo_df.loc[0]['Government']
+     elif stereo == 'cult-lang': 
+          sterry = "Culture and Language"
+          stereo_df = stereo_df.loc[0]['Culture and Language']
+     elif stereo == 'war': 
+          sterry = "War"
+          stereo_df = stereo_df.loc[0]['War']
+     elif stereo == 'healthcare': 
+          sterry = "Healthcare"
+          stereo_df = stereo_df.loc[0]['Healthcare']
+     elif stereo == 'infrastructure': 
+          sterry = "Infrastructure" 
+          stereo_df = stereo_df.loc[0]['Infrastructure']         
+     elif stereo == 'education': 
+          sterry = "Education"
+          stereo_df = stereo_df.loc[0]['Education']
 
-     sa_df = pd.read_csv(my_file_sa) # deployment
-     sa_ctrydf = sa_df['Country'].str.lower()
-
-     ca_df = pd.read_csv(my_file_ca) # deployment
-     ca_ctrydf = ca_df['Country'].str.lower()
-
-     ea_df = pd.read_csv(my_file_ea) # deployment
-     ea_ctrydf = ea_df['Country'].str.lower()
-
-     if region == 'northafrica':
-          reggy = "North Africa"
-     elif region == 'eastafrica':
-          reggy = "East Africa"
-     elif region == 'westafrica':
-          reggy = "West Africa"
-     elif region == 'centralafrica':
-          reggy = "Central Africa"
-     elif region == 'southafrica': 
-          reggy = "South Africa"
-     
-     #change <country> into blank-blank-blank wording
-     if region == 'northafrica':
-          return render_template('regionpage.html', title="North Africa", title_lower=region, data=na_ctrydf, regpic=reggy) 
-     elif region == 'eastafrica':
-          return render_template('regionpage.html', title="East Africa", title_lower=region, data=ea_ctrydf)
-     elif region == 'westafrica':
-          return render_template('regionpage.html', title="West Africa", title_lower=region, data=wa_ctrydf)
-     elif region == 'centralafrica':
-          return render_template('regionpage.html', title="Central Africa", title_lower=region, data=ca_ctrydf)
-     elif region == 'southafrica': 
-          return render_template('regionpage.html', title="South Africa", title_lower=region, data=sa_ctrydf) 
-     
-#changed 1 2 3 4 5 6
-
-@app.route('/<region>/<country>/')
-def countries(region, country):
-
-     region = str(region)
-     country = str(country)
-
-
-     if region == "northafrica":
-          df = pd.read_csv(my_file_na)
-          df = df.dropna(axis='columns')
-          
-          
-     elif region == "westafrica":
-          df = pd.read_csv(my_file_wa)
-          df = df.dropna(axis='columns')
-
-     
-     elif region == "centralafrica":
-          df = pd.read_csv(my_file_ca)
-          df = df.dropna(axis='columns')
-
-     
-     elif region == "eastafrica":
-          df = pd.read_csv(my_file_ea)
-          df = df.dropna(axis='columns')
-
-     
-     elif region == "southafrica":
-          df = pd.read_csv(my_file_sa)
-          df = df.dropna(axis='columns')
-
-
-     df = df.set_index('Country')
-     df = df.astype('string')
-     
-
-     country = turn_to_text(country) 
-     selection = df.loc[country]
-
-
-     capital = selection['Capital']
-     pres_leader = selection['President/Leader']
-     language = selection['Language']
-     tribes_ethn = selection['Tribes/Ethnic Groups']
-     religion = selection['Religion']
-
-
-     return render_template('countrypage.html', ctry=country, cap=capital,
-                              pres=pres_leader, lang=language, tribes=tribes_ethn,
-                              relg = religion)     
+     if stereo == 'economy':
+          return render_template('stereopage.html', title="Economy", data=stereo_df) 
+     elif stereo == 'landscape':
+          return render_template('stereopage.html', title="Landscape", data=stereo_df)
+     elif stereo == 'climate':
+          return render_template('stereopage.html', title="Climate", data=stereo_df)
+     elif stereo == 'technology':
+          return render_template('stereopage.html', title="Technology", data=stereo_df)
+     elif stereo == 'government': 
+          return render_template('stereopage.html', title="Government", data=stereo_df) 
+     elif stereo == 'cult-lang':
+          return render_template('stereopage.html', title="Culture and Language", data=stereo_df)
+     elif stereo == 'war':
+          return render_template('stereopage.html', title="War", data=stereo_df)
+     elif stereo == 'healthcare':
+          return render_template('stereopage.html', title="Healthcare", data=stereo_df)
+     elif stereo == 'infrastructure': 
+          return render_template('stereopage.html', title="Infrastructure", data=stereo_df) 
+     elif stereo == 'education': 
+          return render_template('stereopage.html', title="Education", data=stereo_df) 
      
 if __name__ == "__main__":
      app.run(debug=True) 

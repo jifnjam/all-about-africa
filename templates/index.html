@@ -2,236 +2,256 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-  <link href="static/css/base.css" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
+     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+     <link href="static/css/base.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
 
-  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-  <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-  <script src="//cdn.amcharts.com/lib/5/geodata/region/world/africaLow.js"></script>
+     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+     <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+     <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+     <script src="//cdn.amcharts.com/lib/5/geodata/region/world/africaLow.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-      gsap.registerPlugin(ScrollTrigger);
+     <script>
+          document.addEventListener("DOMContentLoaded", (event) => {
+               gsap.registerPlugin(ScrollTrigger);
 
-      // Globe Map
+               // Globe Map
 
-      var root = am5.Root.new("chartdiv");
-      //remove the HEADER
-      root.setThemes([am5themes_Animated.new(root)]);
+               var root = am5.Root.new("chartdiv");
+               //remove the HEADER
+               root.setThemes([am5themes_Animated.new(root)]);
 
-      var chart = root.container.children.push(
-        am5map.MapChart.new(root, {
-          panX: "none",
-          panY: "none",
-          rotateY: "none",
-          wheelY: "none",
-          projection: am5map.geoEqualEarth()
-        })
-      );
+               var chart = root.container.children.push(
+                    am5map.MapChart.new(root, {
+                         panX: "none",
+                         panY: "none",
+                         rotateY: "none",
+                         wheelY: "none",
+                         projection: am5map.geoEqualEarth()
+                    })
+               );
 
-      var continentSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-          geoJSON: am5geodata_continentsLow,
-          exclude: ["antarctica"]
-        })
-      );
+               var continentSeries = chart.series.push(
+                    am5map.MapPolygonSeries.new(root, {
+                         geoJSON: am5geodata_continentsLow,
+                         exclude: ["antarctica"]
+                    })
+               );
 
-      continentSeries.mapPolygons.template.setAll({
-        interactive: true,
-        fillOpacity: 1,
-        fill: am5.color(0x000000),
-        strokeOpacity: 1,
-        strokeWidth: 2,
-        strokeDasharray: [2]
-      });
+               continentSeries.mapPolygons.template.setAll({
+                    interactive: true,
+                    fillOpacity: 1,
+                    fill: am5.color(0x000000),
+                    strokeOpacity: 1,
+                    strokeWidth: 2,
+                    strokeDasharray: [2]
+               });
 
-      continentSeries.mapPolygons.template.set(
-        "fillGradient",
-        am5.LinearGradient.new(root, {
-          stops: [
-            {
-              color: am5.color(0x60992d)
-            },
-            {
-              color: am5.color(0x60992d)
-            },
-            {
-              color: am5.color(0x60992d)
-            }
-          ],
-          rotation: 90
-        })
-      );
+               continentSeries.mapPolygons.template.set(
+                    "fillGradient",
+                    am5.LinearGradient.new(root, {
+                         stops: [
+                              {
+                                   color: am5.color(0x60992d)
+                              },
+                              {
+                                   color: am5.color(0x60992d)
+                              },
+                              {
+                                   color: am5.color(0x60992d)
+                              }
+                         ],
+                         rotation: 90
+                    })
+               );
 
-      var backgroundSeries = chart.series.unshift(
-        am5map.MapPolygonSeries.new(root, {})
-      );
+               var backgroundSeries = chart.series.unshift(
+                    am5map.MapPolygonSeries.new(root, {})
+               );
 
-      backgroundSeries.mapPolygons.template.setAll({
-        fill: am5.color(0x58a838),
-        fillOpacity: 0,
-        strokeOpacity: 0
-      });
-      //#f34213, #ffbc42, #60992d
-      backgroundSeries.mapPolygons.template.set(
-        "fillGradient",
-        am5.LinearGradient.new(root, {
-          stops: [
-            {
-              //color: am5.color(0x3f7cac)
-              color: am5.color(0xf34213)
-            },
-            {
-              color: am5.color(0xffbc42)
-            },
-            {
-              color: am5.color(0x60992d)
-            }
-          ],
-          rotation: 90
-        })
-      );
+               backgroundSeries.mapPolygons.template.setAll({
+                    fill: am5.color(0x58a838),
+                    fillOpacity: 0,
+                    strokeOpacity: 0
+               });
+               //#f34213, #ffbc42, #60992d
+               backgroundSeries.mapPolygons.template.set(
+                    "fillGradient",
+                    am5.LinearGradient.new(root, {
+                         stops: [
+                              {
+                                   //color: am5.color(0x3f7cac)
+                                   color: am5.color(0xf34213)
+                              },
+                              {
+                                   color: am5.color(0xffbc42)
+                              },
+                              {
+                                   color: am5.color(0x60992d)
+                              }
+                         ],
+                         rotation: 90
+                    })
+               );
 
-      backgroundSeries.data.push({
-        geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-      });
+               backgroundSeries.data.push({
+                    geometry: am5map.getGeoRectangle(90, 180, -90, -180)
+               });
 
-      chart.animate({
-        key: "rotationX",
-        from: 0,
-        to: 340,
-        duration: 5000,
-        loops: Infinity
-      });
+               chart.animate({
+                    key: "rotationX",
+                    from: 0,
+                    to: 340,
+                    duration: 5000,
+                    loops: Infinity
+               });
 
-      // Africa Map
-      var afroot = am5.Root.new("afrchartdiv");
-      afroot.setThemes([am5themes_Animated.new(afroot)]);
+               // Africa Map
+               var afroot = am5.Root.new("afrchartdiv");
+               afroot.setThemes([am5themes_Animated.new(afroot)]);
 
-      var afrchart = afroot.container.children.push(
-        am5map.MapChart.new(afroot, {
-          panX: "none",
-          wheelY: "none",
-          projection: am5map.geoNaturalEarth1()
-        })
-      );
+               var afrchart = afroot.container.children.push(
+                    am5map.MapChart.new(afroot, {
+                         panX: "none",
+                         wheelY: "none",
+                         projection: am5map.geoNaturalEarth1()
+                    })
+               );
 
-      var afrpolygonSeries = afrchart.series.push(
-        am5map.MapPolygonSeries.new(afroot, {
-          geoJSON: am5geodata_region_world_africaLow,
-          fill: am5.color(0x7dc95e)
-        })
-      );
+               var afrpolygonSeries = afrchart.series.push(
+                    am5map.MapPolygonSeries.new(afroot, {
+                         geoJSON: am5geodata_region_world_africaLow,
+                         fill: am5.color(0x7dc95e)
+                    })
+               );
 
-      afrpolygonSeries.mapPolygons.template.setAll({
-        tooltipText: "{id}: {name}",
-        interactive: true
-      });
+               afrpolygonSeries.mapPolygons.template.setAll({
+                    tooltipText: "{id}: {name}",
+                    interactive: true
+               });
 
-      afrpolygonSeries.mapPolygons.template.states.create("hover", {
-        fill: am5.color(0xd4efa9)
-      }); })
-  </script>
+               afrpolygonSeries.mapPolygons.template.states.create("hover", {
+                    fill: am5.color(0xd4efa9)
+               });
+          })
+     </script>
 
-  <div class="navbar">
-    <a href="/about-us/">About Us</a>
-    <a style="float:right;" href="/">All About Africa</a>
+     <div class="navbar">
+          <a href="/about-us/">About Us</a>
+          <a style="float:right;" href="/">All About Africa</a>
 
-    <div class="dropdown">
-      <button class="dropbtn" onclick="dropdown()"> Regions
-        <i class="fa fa-caret-down"></i> </button>
-      <div class="dropdown-content" id="homeDropdown">
-        <a href="/northafrica/">North Africa</a>
-        <a href="/westafrica/"> West Africa</a>
-        <a href="/centralafrica"> Central Africa</a>
-        <a href="/eastafrica/"> East Africa</a>
-        <a href="southafrica"> South Africa</a>
+          <div class="dropdown">
+               <button class="dropbtn" onclick="dropdown()"> Regions
+                    <i class="fa fa-caret-down"></i> </button>
+               <div class="dropdown-content" id="homeDropdown">
+                    <a href="/economy/">Economy</a>
+                    <a href="/landscape/">Landscape</a>
+                    <a href="/climate">Climate</a>
+                    <a href="/technology/">Technology</a>
+                    <a href="/government/">Government</a>
+                    <a href="/cult-lang/">Culture and Language</a>
+                    <a href="/war/">War</a>
+                    <a href="/healthcare">Healthcare</a>
+                    <a href="/infrastructure/">Infrastructure</a>
+                    <a href="/education/">Education</a>
+               </div>
+          </div>
+     </div>
 
-      </div>
-    </div>
-  </div>
+     <script>
+          function dropdown() {
+               document.getElementById("homeDropdown").classList.toggle("show");
+          }
+          // Close the dropdown if the user clicks outside of it
+          window.onclick = function (e) {
+               if (!e.target.matches('.dropbtn')) {
+                    var myDropdown = document.getElementById("homeDropdown");
+                    if (homeDropdown.classList.contains('show')) {
+                         homeDropdown.classList.remove('show');
+                    }
+               }
+          }
+     </script>
 
-  <script>
-    function dropdown() {
-      document.getElementById("homeDropdown").classList.toggle("show");
-    }
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (e) {
-      if (!e.target.matches('.dropbtn')) {
-        var myDropdown = document.getElementById("homeDropdown");
-        if (homeDropdown.classList.contains('show')) {
-          homeDropdown.classList.remove('show');
-        }
-      }
-    }
-  </script>
+     <header>
+          <!--<h1>The Continent, Not The Country</h1>-->
+          <div id="chartdiv"></div>
+     </header>
 
-  <header>
-    <!--<h1>The Continent, Not The Country</h1>-->
-    <div id="chartdiv"></div>
-  </header>
+     <div id="begin">
+          <h1> P.S. AllAboutAfrica is still in the development stages and will not be fully accessible until all
+               information has been
+               appropriately proofread and cited. There is information that also needs to be copied over to appropriate
+               web page from the local
+               storage. <br>
+               Expect to access the full version of AllAboutAfrica by October 20, 2024. You can access
+               the GitHub for AllAboutAfrica <a style="color:white;"
+                    href="https://github.com/jifnjam/all-about-africa">here</a> to see
+               all templates, data, and licensure. Thank you for your cooperation.
+          </h1>
+          <h1>Often Misunderstood and Stereotyped.</h1>
+          <h3>Africa's population of over 1.4 Billion is split up into over 5 different regions, covering over 20% of
+               the
+               Earth's landmass and housing over 3,000 languages. Each of the 54 countries of Africa have delicious
+               food, storied
+               culture, stunning architecture, and scenic geography.</h3>
 
-  <div id="begin">
-    <h1> P.S. AllAboutAfrica is still in the development stages and will not be fully accessible until all information has been 
-      appropriately proofread and cited. There is information that also needs to be copied over to appropriate web page from the local
-      storage. <br>
-      Expect to access the full version of AllAboutAfrica by October 20, 2024. You can access
-      the GitHub for AllAboutAfrica <a style="color:white;" href="https://github.com/jifnjam/all-about-africa">here</a> to see
-      all templates, data, and licensure. Thank you for your cooperation.
-    </h1>
-    <h1>Often Misunderstood and Stereotyped.</h1>
-    <h3>Africa's population of over 1.4 Billion is split up into over 5 different regions, covering over 20% of the
-      Earth's landmass and housing over 3,000 languages. Each of the 54 countries of Africa have delicious food, storied
-      culture, stunning architecture, and scenic geography.</h3>
+          <div class="imgcontainer">
+               <img class="imgitem"
+                    src="https://images.unsplash.com/photo-1665332195309-9d75071138f0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+               <img class="imgitem"
+                    src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+               <img class="imgitem" src="https://cdn.pixabay.com/photo/2021/07/01/08/57/safari-6378792_1280.jpg">
+               <img class="imgitem"
+                    src="https://cdn.pixabay.com/photo/2021/01/09/21/05/victoria-falls-5903496_1280.jpg">
+          </div>
+          <h3>Despite this, people may have preconceived stereotypes about Africa such as Africa being filled with poor,
+               diseased, and uneducated people. That Africans speak "African", cities aren't present in Africa, internet
+               isn't
+               common, and that a desert covers the whole continent.
+          </h3>
+          <h3>These are quite negative and don't properly highlight ALL of the aspects of Africa and its peoples. All
+               About
+               Africa intends to highlight the positive things about Africa and disprove negative stereotypes with
+               information from it list of
+               trusted sources.</h3>
+          <h3>Each of the 5 regions link to an informational page about the region, its countries, and
+               unknown facts that are notable to learn about as well.
+          </h3>
+          <h3>More detailed and accurate information about the countries may be found from our list of sources.</h3>
 
-    <div class="imgcontainer">
-      <img class="imgitem"
-        src="https://images.unsplash.com/photo-1665332195309-9d75071138f0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-      <img class="imgitem"
-        src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-      <img class="imgitem" src="https://cdn.pixabay.com/photo/2021/07/01/08/57/safari-6378792_1280.jpg">
-      <img class="imgitem" src="https://cdn.pixabay.com/photo/2021/01/09/21/05/victoria-falls-5903496_1280.jpg">
-    </div>
-    <h3>Despite this, people may have preconceived stereotypes about Africa such as Africa being filled with poor,
-      diseased, and uneducated people. That Africans speak "African", cities aren't present in Africa, internet isn't
-      common, and that a desert covers the whole continent.
-    </h3>
-    <h3>These are quite negative and don't properly highlight ALL of the aspects of Africa and its peoples. All About
-      Africa intends to highlight the positive things about Africa and disprove negative stereotypes with information from it list of 
-      trusted sources.</h3>
-    <h3>Each of the 5 regions link to an informational page about the region, its countries, and 
-      unknown facts that are notable to learn about as well.
-    </h3>
-    <h3>More detailed and accurate information about the countries may be found from our list of sources.</h3>
+          <div class="regcontainer">
+               <a class="btn regitem" href="/economy/">Economy</a>
+               <a class="btn regitem" href="/landscape/">Landscape</a>
+               <a class="btn regitem" href="/climate">Climate</a>
+               <a class="btn regitem" href="/technology/">Technology</a>
+               <a class="btn regitem" href="/government/">Government</a>
+               <a class="btn regitem" href="/cult-lang/">Culture and Language</a>
+               <a class="btn regitem" href="/war/">War</a>
+               <a class="btn regitem" href="/healthcare">Healthcare</a>
+               <a class="btn regitem" href="/infrastructure/">Infrastructure</a>
+               <a class="btn regitem" href="/education/">Education</a>
+          </div>
+          <div id="afrchartdiv"></div>
+     </div>
 
-    <div class="regcontainer">
-      <a class="btn regitem" href="/northafrica/">North Africa</a>
-      <a class="btn regitem" href="/westafrica/">West Africa</a>
-      <a class="btn regitem" href="/centralafrica/">Central Africa</a>
-      <a class="btn regitem" href="/eastafrica/">East Africa</a>
-      <a class="btn regitem" href="/southafrica/">South Africa</a>
-    </div>
-    <div id="afrchartdiv"></div>
-  </div>
-
-  <div class="footer-container">
-    <div><a
-        href="https://www.notion.so/travel-otm/b730fc9fc1a84e9fa6ce5a5afc227f17?v=844e59281c6f4916b96a1520ccc2e4c1&pvs=4">See Our Sources</a>
-    </div>
-  </div>
+     <div class="footer-container">
+          <div><a
+                    href="https://www.notion.so/travel-otm/b730fc9fc1a84e9fa6ce5a5afc227f17?v=844e59281c6f4916b96a1520ccc2e4c1&pvs=4">See
+                    Our Sources</a>
+          </div>
+     </div>
 
 </body>
 
