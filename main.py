@@ -34,7 +34,7 @@ def turn_to_html(choice):
 def home():
      return render_template('index.html')
 
-@app.route('/<stereotype>/')
+@app.route('/<stereo>/')
 def stereotypes(stereo):
 
      stereo_df = pd.read_excel(my_file_sa)
