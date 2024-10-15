@@ -56158,7 +56158,7 @@ p.patches(
 
 p.add_tile("CartoDB Voyager")
 #output_file("testygeo.html")
-#show(p)
+show(p)
 
 
 

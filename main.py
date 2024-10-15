@@ -56194,8 +56194,7 @@ def make_plot():
 
 @app.route('/')
 def home():
-     js, tag = autoload_static(make_plot(), CDN, "static/js/embed.js")
-     return render_template('index.html', tag=tag)
+     return render_template('index.html')
 
 @app.route('/about/')
 def about():
