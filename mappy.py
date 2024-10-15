@@ -3,9 +3,11 @@ import json
 from bokeh.models import GeoJSONDataSource
 from bokeh.plotting import figure, show, output_file
 from bokeh.sampledata.sample_geojson import geojson
+from bokeh.resources import CDN
+from bokeh.embed import autoload_static, components, json_item 
 import pandas as pd
 
-output_file("testygeo.html")
+
 geojson = """{
      "type": "FeatureCollection",
      "features": [
@@ -56142,7 +56144,7 @@ TOOLTIPS = [
 
 p = figure(x_axis_type="mercator", y_axis_type="mercator", tooltips=TOOLTIPS)
 
-p.scatter(x='x', y='y', size=15, color='Color', alpha=0.7, source=geo_source)
+p.scatter(x='x', y='y', size=15, alpha=0.7, source=geo_source)
 
 p.patches(
     "xs",
@@ -56155,9 +56157,10 @@ p.patches(
 )
 
 p.add_tile("CartoDB Voyager")
-
+#output_file("testygeo.html")
 #show(p)
 
-df = pd.read_excel('stereotypes.xlsx')
 
-print(df.loc[0]['Economy'])
+#df = pd.read_excel('stereotypes.xlsx')
+
+#print(df.loc[0]['Economy'])

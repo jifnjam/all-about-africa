@@ -2,110 +2,123 @@
 <html lang=en>
 
 <head>
-  <title>{{title}}</title>
+     <title>{{title}}</title>
 
-  <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
-  <meta charset="UTF-8">
-  <meta name="description" content="Africa Informational Site">
-  <meta name="keywords" content="Africa, country, countries, North Africa, West Africa, East Africa, Central Africa, South Africa">
+     <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
+     <meta charset="UTF-8">
+     <meta name="description" content="Africa Informational Site">
+     <meta name="keywords"
+          content="Africa, country, countries, North Africa, West Africa, East Africa, Central Africa, South Africa">
+     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+     <style>
+          * {
+               box-sizing: border-box;
+          }
 
-  <style>
-    header {
-      color: #EBF7E3;
-      font-family: "Arial Black", sans-serif;
-      font-size: 3em;
-      text-align: center;
-      position: relative;
-      margin: 20px;
-    }
+          header {
+               color: #EBF7E3;
+               font-family: "Arial Black", sans-serif;
+               font-size: 3em;
+               text-align: center;
+               position: relative;
+               margin: 20px;
+          }
 
-    body {
-      background-image: linear-gradient(to right, #66B032, #9BD770);
-      margin: 0;
-    }
+          body {
+               background-image: linear-gradient(to right, #66B032, #9BD770);
+               margin: 0;
+               font-family: Exo, sans;
+          }
 
-    .info {
-     color: purple;
-    }
+          .info {
+               color: white;
+               position: relative;
+               font-size: 1.5em;
+               padding: 20px;
+               background-color: #60992d;
 
-    h2 {
-      color: #EBF7E3;
-      font-family: arial;
-      padding-left: 25px;
-      text-align: center;
-      font-size: 2em;
-      position: relative;
-    }
 
-    a {
-      text-decoration: none;
-      color: #ffffff;
-    }
+          }
 
-    .homeul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0px;
-      overflow: hidden;
-      /*background-color: #375F1B;*/
-      background-image: linear-gradient(to right, #66B032, #9BD770);
-      position: sticky;
-      position: -webkit-sticky;
-      top: 0;
-      width: 100%;
-    }
+          h2 {
+               color: #EBF7E3;
+               font-family: arial;
+               padding-left: 25px;
+               text-align: center;
+               font-size: 2em;
+               position: relative;
+          }
 
-    .homeli {
-      float: left;
-    }
+          a {
+               text-decoration: none;
+               color: #ffffff;
+          }
 
-    .homeli a {
-      display: block;
-      color: white;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      transition-duration: 0.4s;
-      cursor: pointer;
-    }
+          .homeul {
+               list-style-type: none;
+               margin: 0;
+               padding: 0px;
+               overflow: hidden;
+               /*background-color: #375F1B;*/
+               background-image: linear-gradient(to right, #66B032, #9BD770);
+               position: sticky;
+               position: -webkit-sticky;
+               top: 0;
+               width: 100%;
+               background-color: #f34213;
+          }
 
-    .homeli a:hover {
-      text-decoration: none;
-      opacity: 1;
-      border-bottom: 1px solid white;
-    }
+          .homeli {
+               float: left;
+          }
 
-    img {
-      height: 125px;
-      width: 150px;
-      float: right;
-    }
+          .homeli a {
+               display: block;
+               color: white;
+               font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+               text-align: center;
+               padding: 14px 16px;
+               text-decoration: none;
+               transition-duration: 0.4s;
+               cursor: pointer;
+          }
 
-  </style>
+          .homeli a:hover {
+               text-decoration: none;
+               opacity: 1;
+               border-bottom: 1px solid white;
+          }
+
+          img {
+               height: 125px;
+               width: 150px;
+               float: right;
+          }
+     </style>
 </head>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-  <div>
-    <ul class="homeul">
-      <li class="homeli"><a class='home' href='/' target="_self">Home</a></li>
-      <li class="homeli"><a class='home' href="/economy/">Economy</a></li>
-      <li class="homeli"><a class='home' href="/landscape/">Landscape</a></li>
-      <li class="homeli"><a class='home' href="/climate">Climate</a></li>
-      <li class="homeli"><a class='home' href="/technology/">Technology</a></li>
-      <li class="homeli"><a class='home' href="/government/">Government</a></li>
-      <li class="homeli"><a class='home' href="/cult-lang/">Culture and Language</a></li>
-      <li class="homeli"><a class='home' href="/war/">War</a></li>
-      <li class="homeli"><a class='home' href="/healthcare">Healthcare</a></li>
-      <li class="homeli"><a class='home' href="/infrastructure/">Infrastructure</a></li>
-      <li class="homeli"><a class='home' href="/education/">Education</a></li>
-    </ul>
-  </div>
+     <div>
+          <ul class="homeul">
+               <li class="homeli"><a class='home' href='/' target="_self">Home</a></li>
+               <li class="homeli"><a class='home' href="/economy/">Economy</a></li>
+               <li class="homeli"><a class='home' href="/landscape/">Landscape</a></li>
+               <li class="homeli"><a class='home' href="/climate">Climate</a></li>
+               <li class="homeli"><a class='home' href="/technology/">Technology</a></li>
+               <li class="homeli"><a class='home' href="/government/">Government</a></li>
+               <li class="homeli"><a class='home' href="/cult-lang/">Culture and Language</a></li>
+               <li class="homeli"><a class='home' href="/war/">War</a></li>
+               <li class="homeli"><a class='home' href="/healthcare">Healthcare</a></li>
+               <li class="homeli"><a class='home' href="/infrastructure/">Infrastructure</a></li>
+               <li class="homeli"><a class='home' href="/education/">Education</a></li>
+          </ul>
+     </div>
 
-  <header>{{title}}</header>
-  {% block content %}{% endblock %}
+     <header>{{title}}</header>
+     {% block content %}{% endblock %}
 
 </body>
 

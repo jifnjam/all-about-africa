@@ -8,6 +8,7 @@
           rel="stylesheet">
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
      <link href="static/css/base.css" rel="stylesheet">
+     {{resources}}
 </head>
 
 <body>
@@ -152,7 +153,7 @@
           <a style="float:right;" href="/">All About Africa</a>
 
           <div class="dropdown">
-               <button class="dropbtn" onclick="dropdown()"> Regions
+               <button class="dropbtn" onclick="dropdown()"> Explore
                     <i class="fa fa-caret-down"></i> </button>
                <div class="dropdown-content" id="homeDropdown">
                     <a href="/economy/">Economy</a>
@@ -243,7 +244,15 @@
                <a class="btn regitem" href="/infrastructure/">Infrastructure</a>
                <a class="btn regitem" href="/education/">Education</a>
           </div>
-          <div id="afrchartdiv"></div>
+          <!--<div id="afrchartdiv"></div>-->
+          <div id="myplot"></div>
+          <script>
+               fetch('/')
+                 .then(function(response) { return response.json(); })
+                 .then(function(item) { return Bokeh.embed.embed_item(item); })
+          </script>
+             
+
      </div>
 
      <div class="footer-container">
