@@ -56190,14 +56190,11 @@ def make_plot():
 
      return p
 
+
+
 @app.route('/')
 def home():
-     return render_template('index.html', resources=CDN.render())
-
-@app.route('/plot')
-def plot():
-     p = make_plot()
-     return json.dumps(json_item(p))
+     return render_template('index.html')
 
 @app.route('/about/')
 def about():

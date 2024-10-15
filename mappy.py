@@ -56161,6 +56161,8 @@ p.add_tile("CartoDB Voyager")
 #show(p)
 
 
+
+
 #df = pd.read_excel('stereotypes.xlsx')
 
 #print(df.loc[0]['Economy'])
