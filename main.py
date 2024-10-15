@@ -56197,7 +56197,7 @@ def home():
 @app.route('/plot')
 def plot():
      p = make_plot()
-     return json.dumps(json_item(p, "myplot"))
+     return json.dumps(json_item(p))
 
 @app.route('/about/')
 def about():

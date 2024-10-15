@@ -249,7 +249,7 @@
           <script>
                fetch('/plot')
                  .then(function(response) { return response.json(); })
-                 .then(function(item) { return Bokeh.embed.embed_item(item); })
+                 .then(function(item) { return Bokeh.embed.embed_item(item, "myplot"); })
           </script>
              
 
