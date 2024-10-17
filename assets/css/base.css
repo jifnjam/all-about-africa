@@ -38,7 +38,7 @@ body {
   transition-duration: 0.4s;
 }
 
-.navbar>a:hover {
+.navbar a:hover {
   background-color: inherit;
   border-bottom: 1px solid white;
 }
@@ -58,12 +58,10 @@ body {
 
 }
 
-.dropdown-content a {
-  border-right: 2px solid #ffffff;
-}
-
 .dropdown-content a:hover {
   background-color: #ffbc42;
+  color: black;
+  
 }
 
 /* Title Cover*/
@@ -179,7 +177,8 @@ header>h1 {
 }
 
 .regitem:hover {
-  background-color: #bb892c;
+  background-color: #72541c;
+  border-color: #72541c;
 }
 
 .footer-container {
