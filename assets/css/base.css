@@ -13,7 +13,6 @@ body {
   overflow: hidden;
   width: 100%;
   top: 0;
-  transition-duration: 0.4s;
 }
 
 .navbar a {
@@ -26,6 +25,11 @@ body {
 }
 
 .dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
   cursor: pointer;
   font-size: 24px;
   border: none;
@@ -34,16 +38,13 @@ body {
   padding: 14px 16px;
   background-color: #f34213;
   font-family: inherit;
-  margin: inherit;
-  transition-duration: 0.4s;
+  margin: 0;
 }
 
-.navbar a:hover {
-  background-color: inherit;
-  border-bottom: 1px solid white;
-}
 
-.dropdown:hover .dropbtn {
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
   background-color: inherit;
   border-bottom: 1px solid white;
 }
@@ -55,13 +56,24 @@ body {
   min-width: 150px;
   z-index: 2;
   opacity: 1;
+}
 
+.dropdown-content a {
+  float: none;
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  text-align: center;
+  display: block;
 }
 
 .dropdown-content a:hover {
   background-color: #ffbc42;
-  color: black;
-  
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 /* Title Cover*/
