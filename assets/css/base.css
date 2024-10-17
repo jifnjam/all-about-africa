@@ -198,7 +198,8 @@
    }
  
    .footer-container {
-     display: flex;
+     display: grid;
+     grid-template-columns: auto auto auto auto;
      align-items: center;
      justify-content: center;
      background-color: #f34213;
@@ -206,8 +207,11 @@
      max-height: fit-content;
      position: relative;
    }
- 
-   .footer-container>div>a {
+   .footer-item {
+    background-color: inherit;
+   }
+
+   .footer-item a {
      color: white;
      width: 100%;
      margin: 10px;
@@ -218,7 +222,7 @@
      text-decoration: none;
    }
  
-   .footer-container>div>a:hover {
+   .footer-container a:hover {
      text-decoration: underline;
    }
  
