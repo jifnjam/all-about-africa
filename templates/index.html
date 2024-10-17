@@ -169,7 +169,20 @@
           </div>
      </div>
 
-
+     <script>
+          function dropdown() {
+               document.getElementById("homeDropdown").classList.toggle("show");
+          }
+          // Close the dropdown if the user clicks outside of it
+          window.onclick = function (e) {
+               if (!e.target.matches('.dropbtn')) {
+                    var myDropdown = document.getElementById("homeDropdown");
+                    if (homeDropdown.classList.contains('show')) {
+                         homeDropdown.classList.remove('show');
+                    }
+               }
+          }
+     </script>
 
      <header>
           <div id="chartdiv"></div>
