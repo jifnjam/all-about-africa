@@ -43,8 +43,10 @@
      text-decoration: underline;
    }
  
-   .navbar a:hover .dropdown {
-    display: block;
+   .dropdown:hover .dropbtn,
+   .dropbtn:focus {
+     background-color: inherit;
+     text-decoration: underline;
    }
  
    .dropdown-content {
