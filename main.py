@@ -44,6 +44,7 @@ def make_plot():
           {
                "type": "Feature",
                "properties": {
+
                     "scalerank": 1,
                     "featurecla": "Admin-0 country",
                     "labelrank": 6,
@@ -56169,20 +56170,37 @@ def make_plot():
 
      TOOLTIPS = [
           ('Country Name', '@name'),
-          ('Capital', '@capital')
+          ('Capital', '@capital'),
+          ('Language(s)', '@language'),
+          ('Head of State', '@leader'),
+          ('Ethnic Groups', '@ethngroups'),
+          ('Religion', '@religion')
           ]
 
-     p = figure(x_axis_type="mercator", y_axis_type="mercator", tooltips=TOOLTIPS)
+     p = figure(x_axis_type="mercator", y_axis_type="mercator", tooltips=TOOLTIPS,
+                tools="tap, wheel_zoom, box_zoom, zoom_out, zoom_in, reset")
+     
+     p.xaxis.visible = False
+     p.yaxis.visible = False
+     p.xgrid.visible = False
+     p.ygrid.visible = False
+     p.toolbar.autohide = True
 
-     p.scatter(x='x', y='y', size=15, alpha=0.7, source=geo_source)
-
+     p.background_fill_color = "deepskyblue"
+     p.outline_line_width = 7
+     p.outline_line_alpha = 0.5
+     p.outline_line_color = "forestgreen"
+     renderer = p.scatter(x='x', y='y', size=15, alpha=0.7, source=geo_source)
+     renderer.selection_glyph = renderer.glyph.clone(fill_alpha=1)
+     renderer.nonselection_glyph = renderer.glyph.clone(fill_alpha=0.2)
+     
      p.patches(
      "xs",
      "ys",
      source=geo_source,
      line_width=0.5,
      line_color="white",
-     fill_color="purple",
+     fill_color="limegreen",
      fill_alpha=0.7,
      )
 

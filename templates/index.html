@@ -21,7 +21,6 @@
      <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
      <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
      <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-     <script src="//cdn.amcharts.com/lib/5/geodata/region/world/africaLow.js"></script>
 
      <script>
           document.addEventListener("DOMContentLoaded", (event) => {
@@ -153,7 +152,7 @@
           <a style="float:right;" href="/">All About Africa</a>
 
           <div class="dropdown">
-               <button class="dropbtn" onclick="dropdown()"> Explore
+               <button class="dropbtn"> Explore
                     <i class="fa fa-caret-down"></i> </button>
                <div class="dropdown-content" id="homeDropdown">
                     <a href="/economy/">Economy</a>
@@ -170,36 +169,12 @@
           </div>
      </div>
 
-     <script>
-          function dropdown() {
-               document.getElementById("homeDropdown").classList.toggle("show");
-          }
-          // Close the dropdown if the user clicks outside of it
-          window.onclick = function (e) {
-               if (!e.target.matches('.dropbtn')) {
-                    var myDropdown = document.getElementById("homeDropdown");
-                    if (homeDropdown.classList.contains('show')) {
-                         homeDropdown.classList.remove('show');
-                    }
-               }
-          }
-     </script>
-
      <header>
-          <!--<h1>The Continent, Not The Country</h1>-->
           <div id="chartdiv"></div>
      </header>
 
      <div id="begin">
-          <h1> P.S. AllAboutAfrica is still in the development stages and will not be fully accessible until all
-               information has been
-               appropriately proofread and cited. There is information that also needs to be copied over to appropriate
-               web page from the local
-               storage. <br>
-               Expect to access the full version of AllAboutAfrica by October 20, 2024. You can access
-               the GitHub for AllAboutAfrica <a style="color:white;"
-                    href="https://github.com/jifnjam/all-about-africa">here</a> to see
-               all templates, data, and licensure. Thank you for your cooperation.
+          <h1> The Continent, Not the Country
           </h1>
           <h1>Often Misunderstood and Stereotyped.</h1>
           <h3>Africa's population of over 1.4 Billion is split up into over 5 different regions, covering over 20% of
@@ -244,13 +219,9 @@
                <a class="btn regitem" href="/infrastructure/">Infrastructure</a>
                <a class="btn regitem" href="/education/">Education</a>
           </div>
-          <!--<div id="afrchartdiv"></div>
-          <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.0.min.js" crossorigin="anonymous"></script>
-          <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.0.min.js" crossorigin="anonymous"></script>
-          <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.6.0.min.js" crossorigin="anonymous"></script>-->
 
           <script src="static/js/embed.js" id="ea2c0685-f80e-457d-9b68-502bb35f03a3"></script>
-   
+
 
 
      </div>

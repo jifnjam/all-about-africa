@@ -5,15 +5,15 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.sampledata.sample_geojson import geojson
 from bokeh.resources import CDN
 from bokeh.embed import autoload_static, components, json_item 
-import pandas as pd
 
-
-geojson = """{
+def make_plot():
+     geojson = """{
      "type": "FeatureCollection",
      "features": [
           {
                "type": "Feature",
                "properties": {
+
                     "scalerank": 1,
                     "featurecla": "Admin-0 country",
                     "labelrank": 6,
@@ -56133,36 +56133,48 @@ geojson = """{
      }
 }"""
 
-data = json.loads(geojson)
+     data = json.loads(geojson)
 
-geo_source = GeoJSONDataSource(geojson=json.dumps(data))
+     geo_source = GeoJSONDataSource(geojson=json.dumps(data))
 
-TOOLTIPS = [
-     ('Country Name', '@name'),
-     ('Capital', '@capital')
-     ]
+     TOOLTIPS = [
+          ('Country Name', '@name'),
+          ('Capital', '@capital'),
+          ('Language(s)', '@language'),
+          ('Head of State', '@leader'),
+          ('Ethnic Groups', '@ethngroups'),
+          ('Religion', '@religion')
+          ]
+     
+     p = figure(x_axis_type="mercator", y_axis_type="mercator", tooltips=TOOLTIPS,
+                tools="tap, wheel_zoom, box_zoom, zoom_out, zoom_in, reset")
+     
+     p.xaxis.visible = False
+     p.yaxis.visible = False
+     p.xgrid.visible = False
+     p.ygrid.visible = False
+     p.toolbar.autohide = True
 
-p = figure(x_axis_type="mercator", y_axis_type="mercator", tooltips=TOOLTIPS)
+     p.background_fill_color = "deepskyblue"
+     p.outline_line_width = 7
+     p.outline_line_alpha = 0.5
+     p.outline_line_color = "forestgreen"
+     renderer = p.scatter(x='x', y='y', size=15, alpha=0.7, source=geo_source)
+     renderer.selection_glyph = renderer.glyph.clone(fill_alpha=1)
+     renderer.nonselection_glyph = renderer.glyph.clone(fill_alpha=0.2)
 
-p.scatter(x='x', y='y', size=15, alpha=0.7, source=geo_source)
+     p.patches(
+     "xs",
+     "ys",
+     source=geo_source,
+     line_width=0.5,
+     line_color="white",
+     fill_color="limegreen",
+     fill_alpha=0.7,
+     )
 
-p.patches(
-    "xs",
-    "ys",
-    source=geo_source,
-    line_width=0.5,
-    line_color="white",
-    fill_color="purple",
-    fill_alpha=0.7,
-)
+     p.add_tile("CartoDB Voyager")
 
-p.add_tile("CartoDB Voyager")
-#output_file("testygeo.html")
-show(p)
+     return show(p)
 
-
-
-
-#df = pd.read_excel('stereotypes.xlsx')
-
-#print(df.loc[0]['Economy'])
+make_plot()
