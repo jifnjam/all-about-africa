@@ -48,6 +48,10 @@
      background-color: inherit;
      text-decoration: underline;
    }
+
+   .dropbtn:not(:focus) {
+    text-decoration: none;
+   }
  
    .dropdown-content {
      display: none;
@@ -56,11 +60,13 @@
      min-width: 150px;
      z-index: 2;
      opacity: 1;
+     border-right: 1px solid #ffffff;
    }
  
    .dropdown-content a:hover {
      background-color: #ffbc42;
      color: black;
+     text-decoration: none;
    }
  
    .show {
@@ -188,11 +194,12 @@
    }
  
    .regitem:hover {
-     text-decoration: underline;
+    opacity: 0.5;
    }
  
-   .footer-container {
-     display: flex;
+   footer {
+     display: grid;
+     grid-template-columns: auto auto auto auto;
      align-items: center;
      justify-content: center;
      background-color: #f34213;
@@ -201,19 +208,25 @@
      position: relative;
    }
  
-   .footer-container>div>a {
+   footer>.footer-item {
+    background-color: inherit;
      color: white;
      width: 100%;
-     margin: 10px;
+     margin: 20px;
      text-align: center;
      min-height: 100px;
      max-height: fit-content;
      font-size: 30px;
      text-decoration: none;
+     font-weight: bold;
+   }
+
+   .footer-link {
+    text-decoration: none;
+    color: white;
+
    }
  
-   .footer-container>div>a:hover {
-     text-decoration: underline;
+    .footer-link:hover {
+     color: #ffbc42;
    }
- 
- 
