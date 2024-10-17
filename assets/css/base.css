@@ -38,7 +38,7 @@ body {
   transition-duration: 0.4s;
 }
 
-.navbar a:hover {
+.navbar>a:hover {
   background-color: inherit;
   border-bottom: 1px solid white;
 }
@@ -59,15 +59,11 @@ body {
 }
 
 .dropdown-content a {
-  border-right: 1px solid #ffffff;
+  border-right: 2px solid #ffffff;
 }
 
 .dropdown-content a:hover {
   background-color: #ffbc42;
-}
-
-.show {
-  display: block;
 }
 
 /* Title Cover*/
@@ -108,7 +104,7 @@ header>h1 {
 
 #begin {
   background-color: #60992d;
-  text-align: left;
+  text-align: center;
   width: 100%;
   max-height: fit-content;
   min-height: 600px;
@@ -128,16 +124,8 @@ header>h1 {
 }
 
 #begin h3 {
-  text-align: inherit;
+  text-align: left;
   font-size: 1.5em;
-  font-family: inherit;
-  color: inherit;
-  margin: 50px;
-}
-
-#begin p {
-  text-align: inherit;
-  font-size: 1em;
   font-family: inherit;
   color: inherit;
 }
@@ -190,8 +178,8 @@ header>h1 {
   margin: 20px;
 }
 
-.btn .regitem:hover {
-  opacity: 0.5;
+.regitem:hover {
+  background-color: #bb892c;
 }
 
 .footer-container {
