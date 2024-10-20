@@ -19,7 +19,7 @@
    .info {
      color: black;
      position: relative;
-     text-align: center;
+     text-align: left;
      font-size: 1em;
      background-color: #F5FBEF;
      width: 100%;
@@ -44,9 +44,6 @@
    }
    
    img {
-     height: 125px;
-     width: 150px;
-     float: right;
    }
    
    .navbar {
