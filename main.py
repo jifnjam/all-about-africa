@@ -56226,7 +56226,9 @@ def stereotypes(stereo):
 
      if stereo == 'economy':
           sterry = "Economy"
-          stereo_df = stereo_df.loc[0]['Economy']
+          stereo_header= stereo_df.loc[0]['Economy']
+          content1 = stereo_df.loc[1]['Economy']
+          pic1 = stereo_df.loc[2]['Economy']
      elif stereo == 'landscape':
           sterry = "Landscape"
           stereo_df = stereo_df.loc[0]['Landscape']
@@ -56256,7 +56258,7 @@ def stereotypes(stereo):
           stereo_df = stereo_df.loc[0]['Education']
 
      if stereo == 'economy':
-          return render_template('stereopage.html', title="Economy", data=stereo_df) 
+          return render_template('stereopage.html', title="Economy", top=stereo_header, firstpiece=content1, firstpic=pic1) 
      elif stereo == 'landscape':
           return render_template('stereopage.html', title="Landscape", data=stereo_df)
      elif stereo == 'climate':

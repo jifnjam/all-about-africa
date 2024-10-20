@@ -4,6 +4,9 @@
 
 <div class="info">
      <header>{{title}}</header>
-     <p>{{ data }}</p>
+     {% if title == "Economy" %}
+          <h2>{{ top }}</h2>
+          <p>{{content1}}</p>
+          <img src="{{pic1}}">
 </div> 
 {% endblock %}
