@@ -56233,7 +56233,40 @@ def stereotypes(stereo):
           pic2 = stereo_df.loc[4]['Economy']
      elif stereo == 'landscape':
           sterry = "Landscape"
-          stereo_df = stereo_df.loc[0]['Landscape']
+          stereo_header = stereo_df.loc[0]['Landscape']
+          content1 = stereo_df.loc[1]['Landscape']
+          stereo_header2 = "The Sahara"
+          content2 = stereo_df.loc[2]['Landscape']
+          pic1 = stereo_df.loc[3]['Landscape']
+          stereo_header3 = "The Sahel"
+          content3 = stereo_df.loc[4]['Landscape']
+          pic2 = stereo_df.loc[5]['Landscape']
+          stereo_header4 = "Ethiopian Highlands"
+          content4 = stereo_df.loc[6]['Landscape']
+          pic3 = stereo_df.loc[7]['Landscape']
+          pic4 = stereo_df.loc[8]['Landscape']
+          stereo_header5 = "Savannas"
+          content5 = stereo_df.loc[9]['Landscape']
+          pic5 = stereo_df.loc[10]['Landscape']
+          stereo_header6 = "Swahili Coast"
+          content6 = stereo_df.loc[11]['Landscape']
+          pic6 = stereo_df.loc[12]['Landscape']
+          stereo_header7 = "Mangrove Forests"
+          content7 = stereo_df.loc[13]['Landscape']
+          pic7 = stereo_df.loc[14]['Landscape']
+          stereo_header8 = "Rainforests"
+          content8 = stereo_df.loc[15]['Landscape']
+          pic8 = stereo_df.loc[16]['Landscape']
+          stereo_header9 = "Great Lakes"
+          content9 = stereo_df.loc[17]['Landsape']
+          pic9 = stereo_df.loc[18]["Landscape"]
+          pic10 = stereo_df.loc[19]["Landscape"]
+          pic11 = stereo_df.loc[20]["Landscape"]
+          pic12 = stereo_df.loc[21]["Landscape"]
+          stereo_header10 = "Southern Africa"
+          content10 = stereo_df.loc[22]["Landscape"]
+          pic13 = stereo_df.loc[23]["Landscape"]
+
      elif stereo == 'climate':
           sterry = "Climate"
           stereo_df = stereo_df.loc[0]['Climate']
@@ -56262,7 +56295,11 @@ def stereotypes(stereo):
      if stereo == 'economy':
           return render_template('stereopage.html', title="Economy", top=stereo_header, piece1=content1, pic1=pic1, piece2=content2, pic2=pic2) 
      elif stereo == 'landscape':
-          return render_template('stereopage.html', title="Landscape", data=stereo_df)
+          return render_template('stereopage.html', title="Landscape", top=stereo_header, piece1=content1, top2=stereo_header2, piece2=content2, pic1=pic1,
+                                 piece3=content3, pic2=pic2, piece4=content4, pic3=pic3, pic4=pic4, piece5=content5, pic5=pic5, piece6=content6, pic6=pic6, 
+                                 piece7=content7, pic7=pic7, piece8=content8, pic8=pic8, content9=content9, pic9=pic9, pic10=pic10, pic11=pic11, pic12=pic12, 
+                                 piece10=content10, pic13=pic13, top3=stereo_header3, top4=stereo_header4, top5=stereo_header5, 
+                                 top6=stereo_header6, top7=stereo_header7, top8=stereo_header8, top9=stereo_header9, top10=stereo_header10)
      elif stereo == 'climate':
           return render_template('stereopage.html', title="Climate", data=stereo_df)
      elif stereo == 'technology':
