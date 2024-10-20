@@ -14,7 +14,7 @@ from pathlib import Path
 THIS_FOLDER = Path(__file__).parent.resolve()
 my_file_ma = THIS_FOLDER / "/home/tobim/all-about-africa/masterafrica.csv"
 my_file_sa = THIS_FOLDER / "/home/tobim/all-about-africa/stereotypes.xlsx"
-mycss = THIS_FOLDER / "/home/tobim/all-about-africa/assets/css/stereo.css"
+
 
 app = Flask(__name__)
 
@@ -56256,7 +56256,7 @@ def stereotypes(stereo):
           stereo_df = stereo_df.loc[0]['Education']
 
      if stereo == 'economy':
-          return render_template('stereopage.html', title="Economy", data=stereo_df, css=mycss) 
+          return render_template('stereopage.html', title="Economy", data=stereo_df) 
      elif stereo == 'landscape':
           return render_template('stereopage.html', title="Landscape", data=stereo_df)
      elif stereo == 'climate':
