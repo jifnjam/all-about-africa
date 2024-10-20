@@ -1,0 +1,167 @@
+* {
+     box-sizing: border-box;
+   }
+   
+   header {
+     color: black;
+     font-family: "Arial Black", sans-serif;
+     font-size: 2em;
+     text-align: center;
+     position: relative;
+   }
+   
+   body {
+     /*#66B032, #9BD770)*/
+     margin: 0;
+     font-family: Exo, sans;
+   }
+   
+   .info {
+     color: black;
+     position: relative;
+     text-align: center;
+     font-size: 1em;
+     background-color: #F5FBEF;
+     width: 100%;
+     min-height: 500px;
+     max-height: fit-content;
+     display: block;
+     font-family: "Open Sans", sans;
+   }
+   
+   h2 {
+     color: black;
+     font-family: arial;
+     padding-left: 25px;
+     text-align: center;
+     font-size: 2em;
+     position: relative;
+   }
+   
+   a {
+     text-decoration: none;
+     color: #ffffff;
+   }
+   
+   img {
+     height: 125px;
+     width: 150px;
+     float: right;
+   }
+   
+   .navbar {
+     background-color: #f34213;
+     overflow: hidden;
+     width: 100%;
+     top: 0;
+   }
+   
+   .navbar a {
+     float: left;
+     padding: 14px 16px;
+     color: white;
+     text-decoration: none;
+     font-size: 18px;
+     text-align: center;
+   }
+   
+   .navbar a:hover {
+     text-decoration: underline white 5px;
+   }
+   
+   img {
+     display: block;
+     height: auto;
+     margin: auto;
+     object-fit: cover;
+     
+   }
+   
+   .footer-container {
+     display: grid;
+     grid-template-columns: auto auto auto auto;
+     align-items: center;
+     justify-content: center;
+     background-color: #f34213;
+     min-height: 200px;
+     max-height: fit-content;
+     position: relative;
+   }
+   
+   .footer-item {
+     background-color: inherit;
+   }
+   
+   .footer-item a {
+     color: white;
+     width: 100%;
+     margin: 10px;
+     text-align: center;
+     min-height: 100px;
+     max-height: fit-content;
+     font-size: 20px;
+     text-decoration: none;
+     font-family: "Open Sans", sans;
+   }
+   
+   .footer-container a:hover {
+     color: #ffbc42;
+   }
+   
+   .mobilenav {
+     display: none;
+   }
+   
+   @media only screen and (max-width: 600px) {
+     body {
+       margin: auto;
+     }
+     
+     .navbar {
+       display: none;
+     }
+     
+     .mobilenav {
+       background-color: #f34213;
+       overflow: hidden;
+       width: 100%;
+       top: 0;
+       display: block;
+     }
+     
+     .mobilenav #myLinks {
+       display: none;
+     }
+   
+     .mobilenav a {
+       display: block;
+       padding: 14px 16px;
+       color: white;
+       text-decoration: none;
+       font-size: 18px;
+       text-align: center;
+       position: relative;
+     }
+     
+     .mobilenav a.icon {
+       background-color: #ffbc42;
+       display: block;
+       position: absolute;
+       right: 0;
+       top: 0;
+     }
+     
+     .active {
+       background-color: #f34213;
+       color: white;
+     }
+     
+     .info {
+       text-align: left;
+       max-height: fit-content;
+       min-height: 600px;
+       position: relative;
+       font-family: "Open Sans", sans;
+     }
+     
+   }

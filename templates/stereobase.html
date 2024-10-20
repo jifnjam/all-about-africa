@@ -11,115 +11,77 @@
           content="Africa, country, countries, North Africa, West Africa, East Africa, Central Africa, South Africa">
      <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-     <style>
-          * {
-               box-sizing: border-box;
-          }
+          <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-          header {
-               color: #EBF7E3;
-               font-family: "Arial Black", sans-serif;
-               font-size: 3em;
-               text-align: center;
-               position: relative;
-               margin: 20px;
-          }
-
-          body {
-               background-image: linear-gradient(to right, #66B032, #9BD770);
-               margin: 0;
-               font-family: Exo, sans;
-               background-color: #60992d;
-          }
-
-          .info {
-               color: white;
-               position: relative;
-               font-size: 1.5em;
-               padding: 20px;
-
-
-          }
-
-          h2 {
-               color: #EBF7E3;
-               font-family: arial;
-               padding-left: 25px;
-               text-align: center;
-               font-size: 2em;
-               position: relative;
-          }
-
-          a {
-               text-decoration: none;
-               color: #ffffff;
-          }
-
-          .homeul {
-               list-style-type: none;
-               margin: 0;
-               padding: 0px;
-               overflow: hidden;
-               /*background-color: #375F1B;*/
-               background-image: linear-gradient(to right, #66B032, #9BD770);
-               position: sticky;
-               position: -webkit-sticky;
-               top: 0;
-               width: 100%;
-
-          }
-
-          .homeli {
-               float: left;
-               background-color: #f34213;
-          }
-
-          .homeli a {
-               display: block;
-               color: white;
-               font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-               text-align: center;
-               padding: 14px 16px;
-               text-decoration: none;
-               transition-duration: 0.4s;
-               cursor: pointer;
-          }
-
-          .homeli a:hover {
-               text-decoration: none;
-               opacity: 1;
-               border-bottom: 1px solid white;
-          }
-
-          img {
-               height: 125px;
-               width: 150px;
-               float: right;
-          }
-     </style>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+     <link href="static/css/stereo.css" rel="stylesheet">
 </head>
 
 <body>
-     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js">
+     </script>
 
-     <div>
-          <ul class="homeul">
-               <li class="homeli"><a class='home' href='/' target="_self">Home</a></li>
-               <li class="homeli"><a class='home' href="/economy/">Economy</a></li>
-               <li class="homeli"><a class='home' href="/landscape/">Landscape</a></li>
-               <li class="homeli"><a class='home' href="/climate">Climate</a></li>
-               <li class="homeli"><a class='home' href="/technology/">Technology</a></li>
-               <li class="homeli"><a class='home' href="/government/">Government</a></li>
-               <li class="homeli"><a class='home' href="/cult-lang/">Culture and Language</a></li>
-               <li class="homeli"><a class='home' href="/war/">War</a></li>
-               <li class="homeli"><a class='home' href="/healthcare">Healthcare</a></li>
-               <li class="homeli"><a class='home' href="/infrastructure/">Infrastructure</a></li>
-               <li class="homeli"><a class='home' href="/education/">Education</a></li>
-          </ul>
+     <div class="navbar">
+          <a href="/education/">Education</a>
+          <a href="/landscape/">Landscape</a>
+          <a href="/climate/">Climate</a>
+          <a href="/technology/">Technology</a>
+          <a href="/government/">Government</a>
+          <a href="/cult-lang/">Culture and Language</a>
+          <a href="/war/">War</a>
+          <a href="/healthcare/">Healthcare</a>
+          <a href="/infrastructure">Infrastructure</a>
      </div>
 
-     <header>{{title}}</header>
-     {% block content %}{% endblock %}
+     <div class="mobilenav">
+          <a href="/" class="active">Home</a>
+          <div id="myLinks">
+               <a href="/education/">Education</a>
+               <a href="/landscape/">Landscape</a>
+               <a href="/climate/">Climate</a>
+               <a href="/technology/">Technology</a>
+               <a href="/government/">Government</a>
+               <a href="/cult-lang/">Culture and Language</a>
+               <a href="/war/">War</a>
+               <a href="/healthcare/">Healthcare</a>
+               <a href="/infrastructure">Infrastructure</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+               <i class="fa fa-bars"></i>
+          </a>
+     </div>
+
+     <script>
+          function myFunction() {
+               var x = document.getElementById("myLinks");
+               if (x.style.display === "block") {
+                    x.style.display = "none";
+               } else {
+                    x.style.display = "block";
+               }
+          }
+     </script>
+
+     <div class="info">
+          <header>{{title}}</header>
+          Lots of jibber jabber for jibber jabber endeavors and jibber jabbery endeavors need jibber jabber words. I
+          love jibber jabber words because they are so jibber jabbery. {% block content %}{% endblock %}
+     </div>
+
+     <footer class="footer-container">
+          <div class="footer-item">
+               <a href="https://github.com/jifnjam/all-about-africa">Github</a>
+          </div>
+          <div class="footer-item">
+               <a href="/about-us/">About Us</a>
+          </div>
+          <div class="footer-item">
+               <a href="">References</a>
+          </div>
+          <div class="footer-item">
+               <a href="mailto:t.medow710@gmail.com">Contact Us</a>
+          </div>
+     </footer>
 
 </body>
 
