@@ -56258,7 +56258,7 @@ def stereotypes(stereo):
           content8 = stereo_df.loc[15]['Landscape']
           pic8 = stereo_df.loc[16]['Landscape']
           stereo_header9 = "Great Lakes"
-          content9 = stereo_df.loc[17]['Landsape']
+          content9 = stereo_df.loc[17]['Landscape']
           pic9 = stereo_df.loc[18]["Landscape"]
           pic10 = stereo_df.loc[19]["Landscape"]
           pic11 = stereo_df.loc[20]["Landscape"]
