@@ -5,6 +5,7 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.sampledata.sample_geojson import geojson
 from bokeh.resources import CDN
 from bokeh.embed import autoload_static, components, json_item 
+import pandas as pd
 
 def make_plot():
      geojson = """{
@@ -56177,4 +56178,8 @@ def make_plot():
 
      return show(p)
 
-make_plot()
+df = pd.read_excel('stereotypes.xlsx')
+result = df.loc[0]['Economy']
+result2 = df.loc[1]['Economy']
+result3 = df.loc[2]['Economy']
+print(result, result2, result3)
