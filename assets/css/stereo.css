@@ -12,8 +12,6 @@ html, body {
 
 content {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -55,8 +53,7 @@ header {
   font-size: 1em;
   background-color: #F5FBEF;
   width: 100%;
-  min-height: 600px;
-  max-height: fit-content;
+  height: 100vh;
   display: block;
   font-family: "Open Sans", sans;
 }
