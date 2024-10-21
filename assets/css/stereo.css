@@ -91,16 +91,6 @@ img {
   height: 150px;
 }
 
-
-img {
-  display: block;
-  height: auto;
-  margin: auto;
-  object-fit: cover;
-  padding: 80px;
-
-}
-
 .footer-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
