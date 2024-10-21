@@ -2,270 +2,104 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="shorcut icon" type="image/png" href="/static/img/favicon.png">
+     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet">
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-  <link href="/static/css/base.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+     <link href="/static/css/base.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
 
-  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-  <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+     <content>
+          <div id="myNav" class="navbar">
+               <a style="float:right;" id="title" href="/">All About Africa</a>
+               <a id="ab-us" href="/about-us/">About Us</a>
+               <a id="co-us" href="mailto:t.medow710@gmail.com">Contact Us</a>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-      gsap.registerPlugin(ScrollTrigger);
-      // Globe Map
-      var root = am5.Root.new("chartdiv");
-      //remove the HEADER
-      root.setThemes([am5themes_Animated.new(root)]);
-      var chart = root.container.children.push(
-        am5map.MapChart.new(root, {
-          panX: "none",
-          panY: "none",
-          rotateY: "none",
-          wheelY: "none",
-          projection: am5map.geoEqualEarth()
-        })
-      );
-      var continentSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-          geoJSON: am5geodata_continentsLow,
-          exclude: ["antarctica"]
-        })
-      );
-      continentSeries.mapPolygons.template.setAll({
-        interactive: true,
-        fillOpacity: 1,
-        fill: am5.color(0x000000),
-        strokeOpacity: 1,
-        strokeWidth: 2,
-        strokeDasharray: [2]
-      });
-      continentSeries.mapPolygons.template.set(
-        "fillGradient",
-        am5.LinearGradient.new(root, {
-          stops: [{
-            color: am5.color(0x60992d)
-          },
-          {
-            color: am5.color(0x60992d)
-          },
-          {
-            color: am5.color(0x60992d)
-          }
-          ],
-          rotation: 90
-        })
-      );
-      var backgroundSeries = chart.series.unshift(
-        am5map.MapPolygonSeries.new(root, {})
-      );
-      backgroundSeries.mapPolygons.template.setAll({
-        fill: am5.color(0x58a838),
-        fillOpacity: 0,
-        strokeOpacity: 0
-      });
-      //#f34213, #ffbc42, #60992d
-      backgroundSeries.mapPolygons.template.set(
-        "fillGradient",
-        am5.LinearGradient.new(root, {
-          stops: [{
-            //color: am5.color(0x3f7cac)
-            color: am5.color(0xf34213)
-          },
-          {
-            color: am5.color(0xffbc42)
-          },
-          {
-            color: am5.color(0x60992d)
-          }
-          ],
-          rotation: 90
-        })
-      );
-      backgroundSeries.data.push({
-        geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-      });
-      chart.animate({
-        key: "rotationX",
-        from: 0,
-        to: 340,
-        duration: 5000,
-        loops: Infinity
-      });
-    })
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-      gsap.registerPlugin(ScrollTrigger);
-      // Globe Map
-      var root = am5.Root.new("mchartdiv");
-      //remove the HEADER
-      root.setThemes([am5themes_Animated.new(root)]);
-      var chart = root.container.children.push(
-        am5map.MapChart.new(root, {
-          panX: "none",
-          panY: "none",
-          rotateY: "none",
-          wheelY: "none",
-          projection: am5map.geoOrthographic()
-        })
-      );
-      var continentSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-          geoJSON: am5geodata_continentsLow,
-          exclude: ["antarctica"]
-        })
-      );
-      continentSeries.mapPolygons.template.setAll({
-        interactive: true,
-        fillOpacity: 1,
-        fill: am5.color(0x000000),
-        strokeOpacity: 1,
-        strokeWidth: 2,
-        strokeDasharray: [2]
-      });
-      continentSeries.mapPolygons.template.set(
-        "fillGradient",
-        am5.LinearGradient.new(root, {
-          stops: [{
-            color: am5.color(0x60992d)
-          },
-          {
-            color: am5.color(0x60992d)
-          },
-          {
-            color: am5.color(0x60992d)
-          }
-          ],
-          rotation: 90
-        })
-      );
-      var backgroundSeries = chart.series.unshift(
-        am5map.MapPolygonSeries.new(root, {})
-      );
-      backgroundSeries.mapPolygons.template.setAll({
-        fill: am5.color(0x58a838),
-        fillOpacity: 0,
-        strokeOpacity: 0
-      });
-      //#f34213, #ffbc42, #60992d
-      backgroundSeries.mapPolygons.template.set(
-        "fillGradient",
-        am5.LinearGradient.new(root, {
-          stops: [{
-            //color: am5.color(0x3f7cac)
-            color: am5.color(0xf34213)
-          },
-          {
-            color: am5.color(0xffbc42)
-          },
-          {
-            color: am5.color(0x60992d)
-          }
-          ],
-          rotation: 90
-        })
-      );
-      backgroundSeries.data.push({
-        geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-      });
-      chart.animate({
-        key: "rotationX",
-        from: 0,
-        to: 340,
-        duration: 5000,
-        loops: Infinity
-      });
-    })
-  </script>
+               <div class="subnav">
+                    <button class="subnavbtn"> Explore
+                         <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="subnav-content">
+                         <a href="/economy/">Economy</a>
+                         <a href="/landscape/">Landscape</a>
+                         <a href="/climate">Climate</a>
+                         <a href="/technology/">Technology</a>
+                         <a href="/government/">Government</a>
+                         <a href="/cult-lang/">Culture and Language</a>
+                         <a href="/war/">War</a>
+                         <a href="/healthcare">Healthcare</a>
+                         <a href="/infrastructure/">Infrastructure</a>
+                         <a href="/education/">Education</a>
+                    </div>
+               </div>
+          </div>
 
-  <div id="myNav" class="navbar">
-    <a style="float:right;" id="title" href="/">All About Africa</a>
-    <a id="ab-us" href="/about-us/">About Us</a>
-    <a id="co-us" href="mailto:t.medow710@gmail.com">Contact Us</a>
+          <div class="mobilenav">
+               <a href="/" class="active">All About Africa</a>
+               <div id="myLinks">
+                    <a href="/about-us/">About Us</a>
+                    <a href="/contact-us/">Contact Us</a>
+                    <a href="#mobile-title">Explore</a>
+               </div>
+               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+               </a>
+          </div>
 
-    <div class="subnav">
-      <button class="subnavbtn"> Explore
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="subnav-content">
-        <a href="/economy/">Economy</a>
-        <a href="/landscape/">Landscape</a>
-        <a href="/climate">Climate</a>
-        <a href="/technology/">Technology</a>
-        <a href="/government/">Government</a>
-        <a href="/cult-lang/">Culture and Language</a>
-        <a href="/war/">War</a>
-        <a href="/healthcare">Healthcare</a>
-        <a href="/infrastructure/">Infrastructure</a>
-        <a href="/education/">Education</a>
-      </div>
-    </div>
-  </div>
+          <script>
+               function myFunction() {
+                    var x = document.getElementById("myLinks");
+                    if (x.style.display === "block") {
+                         x.style.display = "none";
+                    } else {
+                         x.style.display = "block";
+                    }
+               }
+          </script>
 
-  <div class="mobilenav">
-    <a href="/" class="active">All About Africa</a>
-    <div id="myLinks">
-      <a href="/about-us/">About Us</a>
-      <a href="/contact-us/">Contact Us</a>
-      <a href="#mobile-title">Explore</a>
-    </div>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
 
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myLinks");
-      if (x.style.display === "block") {
-        x.style.display = "none";
-      } else {
-        x.style.display = "block";
-      }
-    }
-  </script>
 
-  <header>
-    <h1>About Me</h1>
-  </header>
+          <div id="begin">
+               <h1>About Me</h1>
+               <h3>Hello! I'm Tobi Medeiros, the creator of allaboutafrica! I made this website to explore the negative
+                    stereotypes about Africa
+                    and showcase what's really going in the continent. Hopefully during your time here, you'll get a
+                    better
+                    perspective about the real Africa.</h3>
+               <h3>Disclaimer: This website may contain content not authorized by use by its owner(s). All content is
+                    used
+                    for reporting and research.
+                    Images are licensed under a Creative Commons license and are credited.
+               </h3>
+          </div>
+     </content>
 
-  <div id="begin">
-    <h3>Hello! I'm Tobi Medeiros, the creator of allaboutafrica! I made this website to explore the negative stereotypes about Africa
-     and showcase what's really going in the continent. Hopefully during your time here, you'll get a better perspective about the real Africa.</h3>
-     <h3>Disclaimer: This website may contain content not authorized by use by its owner(s). All content is used for reporting and research.
-          Images are licensed under a Creative Commons license and are credited.
-     </h3>
-  </div>
+     <footer class="footer-container">
+          <div class="footer-item">
+               <a href="https://github.com/jifnjam/all-about-africa">Github</a>
+          </div>
+          <div class="footer-item">
+               <a href="/about-us/">About Us</a>
+          </div>
+          <div class="footer-item">
+               <a href="">References</a>
+          </div>
+          <div class="footer-item">
+               <a href="mailto:t.medow710@gmail.com">Contact Us</a>
+          </div>
+     </footer>
 
-  <footer class="footer-container">
-    <div class="footer-item">
-      <a href="https://github.com/jifnjam/all-about-africa">Github</a>
-    </div>
-    <div class="footer-item">
-      <a href="/about-us/">About Us</a>
-    </div>
-    <div class="footer-item">
-      <a href="">References</a>
-    </div>
-    <div class="footer-item">
-      <a href="mailto:t.medow710@gmail.com">Contact Us</a>
-    </div>
-  </footer>
 
 </body>
 
