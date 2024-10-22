@@ -56135,7 +56135,7 @@ def make_plot():
 }"""
 
      data = json.loads(geojson)
-
+     
      geo_source = GeoJSONDataSource(geojson=json.dumps(data))
 
      TOOLTIPS = [
@@ -56177,9 +56177,3 @@ def make_plot():
      p.add_tile("CartoDB Voyager")
 
      return show(p)
-
-df = pd.read_excel('stereotypes.xlsx')
-result = df.loc[0]['Economy']
-result2 = df.loc[1]['Economy']
-result3 = df.loc[2]['Economy']
-print(result, result2, result3)

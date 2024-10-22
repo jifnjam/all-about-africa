@@ -56225,97 +56225,115 @@ def stereotypes(stereo):
      stereo_df = pd.read_excel(my_file_sa)
 
      if stereo == 'economy':
-          sterry = "Economy"
-          stereo_header= stereo_df.loc[0]['Economy']
-          content1 = stereo_df.loc[1]['Economy']
-          pic1 = stereo_df.loc[2]['Economy']
-          content2 = stereo_df.loc[3]['Economy']
-          pic2 = stereo_df.loc[4]['Economy']
+          return render_template('stereopage.html', title="Economy", stereo_header= stereo_df.loc[0]['Economy'], 
+          content1 = stereo_df.loc[1]['Economy'],
+          pic1 = stereo_df.loc[2]['Economy'],
+          content2 = stereo_df.loc[3]['Economy'],
+          pic2 = stereo_df.loc[4]['Economy'],
+          pic3 = stereo_df.loc[5]['Economy'],
+          content3 = stereo_df.loc[6]['Economy'],
+          pic4 = stereo_df.loc[7]['Economy']) 
      elif stereo == 'landscape':
-          sterry = "Landscape"
-          stereo_header = stereo_df.loc[0]['Landscape']
-          content1 = stereo_df.loc[1]['Landscape']
-          stereo_header2 = "The Sahara"
-          content2 = stereo_df.loc[2]['Landscape']
-          pic1 = stereo_df.loc[3]['Landscape']
-          stereo_header3 = "The Sahel"
-          content3 = stereo_df.loc[4]['Landscape']
-          pic2 = stereo_df.loc[5]['Landscape']
-          stereo_header4 = "Ethiopian Highlands"
-          content4 = stereo_df.loc[6]['Landscape']
-          pic3 = stereo_df.loc[7]['Landscape']
-          pic4 = stereo_df.loc[8]['Landscape']
-          stereo_header5 = "Savannas"
-          content5 = stereo_df.loc[9]['Landscape']
-          pic5 = stereo_df.loc[10]['Landscape']
-          stereo_header6 = "Swahili Coast"
-          content6 = stereo_df.loc[11]['Landscape']
-          pic6 = stereo_df.loc[12]['Landscape']
-          stereo_header7 = "Mangrove Forests"
-          content7 = stereo_df.loc[13]['Landscape']
-          pic7 = stereo_df.loc[14]['Landscape']
-          stereo_header8 = "Rainforests"
-          content8 = stereo_df.loc[15]['Landscape']
-          pic8 = stereo_df.loc[16]['Landscape']
-          stereo_header9 = "Great Lakes"
-          content9 = stereo_df.loc[17]['Landscape']
-          pic9 = stereo_df.loc[18]["Landscape"]
-          pic10 = stereo_df.loc[19]["Landscape"]
-          pic11 = stereo_df.loc[20]["Landscape"]
-          pic12 = stereo_df.loc[21]["Landscape"]
-          stereo_header10 = "Southern Africa"
-          content10 = stereo_df.loc[22]["Landscape"]
-          pic13 = stereo_df.loc[23]["Landscape"]
-
+          return render_template('stereopage.html', title="Landscape", stereo_header = stereo_df.loc[0]['Landscape'], content1 = stereo_df.loc[1]['Landscape'], 
+                                 stereo_header2 = "The Sahara", content2 = stereo_df.loc[2]['Landscape'], pic1 = stereo_df.loc[3]['Landscape'], stereo_header3 = "The Sahel",
+                                 content3 = stereo_df.loc[4]['Landscape'], pic2 = stereo_df.loc[5]['Landscape'], stereo_header4 = "Ethiopian Highlands", content4 = stereo_df.loc[6]['Landscape'],
+                                 pic3 = stereo_df.loc[7]['Landscape'], pic4 = stereo_df.loc[8]['Landscape'], stereo_header5 = "Savannas", content5 = stereo_df.loc[9]['Landscape'], pic5 = stereo_df.loc[10]['Landscape'], 
+                                 stereo_header6 = "Swahili Coast", content6 = stereo_df.loc[11]['Landscape'], pic6 = stereo_df.loc[12]['Landscape'], stereo_header7 = "Mangrove Forests",
+                                   content7 = stereo_df.loc[13]['Landscape'],
+                                   pic7 = stereo_df.loc[14]['Landscape'],
+                                   stereo_header8 = "Rainforests",
+                                   content8 = stereo_df.loc[15]['Landscape'],
+                                   pic8 = stereo_df.loc[16]['Landscape'],
+                                   stereo_header9 = "Great Lakes",
+                                   content9 = stereo_df.loc[17]['Landscape'],
+                                   pic9 = stereo_df.loc[18]["Landscape"],
+                                   pic10 = stereo_df.loc[19]["Landscape"],
+                                   pic11 = stereo_df.loc[20]["Landscape"],
+                                   pic12 = stereo_df.loc[21]["Landscape"],
+                                   stereo_header10 = "Southern Africa",
+                                   content10 = stereo_df.loc[22]["Landscape"],
+                                   pic13 = stereo_df.loc[23]["Landscape"])
      elif stereo == 'climate':
-          sterry = "Climate"
-          stereo_df = stereo_df.loc[0]['Climate']
-     elif stereo == 'tecnology':
-          sterry = "Technology"
-          stereo_df = stereo_df.loc[0]['Technology']
-     elif stereo == 'government': 
-          sterry = "Government"
-          stereo_df = stereo_df.loc[0]['Government']
-     elif stereo == 'cult-lang': 
-          sterry = "Culture and Language"
-          stereo_df = stereo_df.loc[0]['Culture and Language']
-     elif stereo == 'war': 
-          sterry = "War"
-          stereo_df = stereo_df.loc[0]['War']
-     elif stereo == 'healthcare': 
-          sterry = "Healthcare"
-          stereo_df = stereo_df.loc[0]['Healthcare']
-     elif stereo == 'infrastructure': 
-          sterry = "Infrastructure" 
-          stereo_df = stereo_df.loc[0]['Infrastructure']         
-     elif stereo == 'education': 
-          sterry = "Education"
-          stereo_df = stereo_df.loc[0]['Education']
-
-     if stereo == 'economy':
-          return render_template('stereopage.html', title="Economy", top=stereo_header, piece1=content1, pic1=pic1, piece2=content2, pic2=pic2) 
-     elif stereo == 'landscape':
-          return render_template('stereopage.html', title="Landscape", top=stereo_header, piece1=content1, top2=stereo_header2, piece2=content2, pic1=pic1,
-                                 piece3=content3, pic2=pic2, piece4=content4, pic3=pic3, pic4=pic4, piece5=content5, pic5=pic5, piece6=content6, pic6=pic6, 
-                                 piece7=content7, pic7=pic7, piece8=content8, pic8=pic8, content9=content9, pic9=pic9, pic10=pic10, pic11=pic11, pic12=pic12, 
-                                 piece10=content10, pic13=pic13, top3=stereo_header3, top4=stereo_header4, top5=stereo_header5, 
-                                 top6=stereo_header6, top7=stereo_header7, top8=stereo_header8, top9=stereo_header9, top10=stereo_header10)
-     elif stereo == 'climate':
-          return render_template('stereopage.html', title="Climate", data=stereo_df)
+          return render_template('stereopage.html', title="Climate", stereo_header = stereo_df.loc[0]['Climate'], content1 = stereo_df.loc[1]['Climate'], 
+                                 pic1 = stereo_df.loc[2]['Climate'], stereo_header1 = "Hot Desert Region", content2 = stereo_df.loc[3]['Climate'], 
+                                 pic2 = stereo_df.loc[4]['Climate'], stereo_header2 = "Semiarid Region", content3 = stereo_df.loc[5]['Climate'], stereo_header3 = "Tropical Wet-and-Dry Region",
+                                 content4 = stereo_df.loc[6]['Climate'], pic3 = stereo_df.loc[7]['Climate'], stereo_header4 = "Equatorial Region", content5 = stereo_df.loc[8]['Climate'],
+                                 stereo_header5 = "Mediterranean/Dry Summer Subtropical Region", content6 = stereo_df.loc[9]['Climate'], pic4 = stereo_df.loc[10]['Climate'], stereo_header6 = "Humid Subtropical Marine Region",
+                                 content7 = stereo_df.loc[11]['Climate'], stereo_header7 = "Warm Temperate Upland Region", content8 = stereo_df.loc[12]['Climate'], stereo_header8 = "Mountain Region", content9 = stereo_df.loc[13]['Climate'],
+                                 pic5 = stereo_df.loc[14]['Climate'])
      elif stereo == 'technology':
-          return render_template('stereopage.html', title="Technology", data=stereo_df)
+          return render_template('stereopage.html', title="Technology", stereo_header = stereo_df.loc[0]['Technology'],
+          content1 = stereo_df.loc[1]['Technology'],
+          embed1 = stereo_df.loc[2]['Technology'],
+          content2 = stereo_df.loc[3]['Technology'])
      elif stereo == 'government': 
-          return render_template('stereopage.html', title="Government", data=stereo_df) 
+          return render_template('stereopage.html', title="Government", stereo_header = stereo_df.loc[0]['Government'],
+          content1 = stereo_df.loc[1]['Government'],
+          embed1 = stereo_df.loc[2]['Government'],
+          content2 = stereo_df.loc[3]['Government'],
+          pic1 = stereo_df.loc[4]['Government'],
+          pic2 = stereo_df.loc[5]['Government'],
+          pic3 = stereo_df.loc[6]['Government'],
+          pic4 = stereo_df.loc[7]['Government'],
+          content3 = stereo_df.loc[8]['Government']) 
      elif stereo == 'cult-lang':
-          return render_template('stereopage.html', title="Culture and Language", data=stereo_df)
+          return render_template('stereopage.html', title="Culture and Language", stereo_header = stereo_df.loc[0]['Culture and Language'],
+          content1 = stereo_df.loc[1]['Culture and Language'],
+          embed1 = stereo_df.loc[2]['Culture and Language'],
+          content2 = stereo_df.loc[3]['Culture and Language'],
+          pic1 = stereo_df.loc[4]['Culture and Language'],
+          content3 = stereo_df.loc[5]['Culture and Language'],
+          stereo_header1 = "Northern Africa",
+          content4 = stereo_df.loc[6]['Culture and Language'],
+          stereo_header2 = stereo_df.loc[7]['Culture and Language'],
+          content5 = stereo_df.loc[8]['Culture and Language'],
+          pic2 = stereo_df.loc[9]['Culture and Language'],
+          stereo_header3 = "West Africa",
+          content6 = stereo_df.loc[10]['Culture and Language'],
+          stereo_header4 = "Central Africa",
+          content7 = stereo_df.loc[11]['Culture and Language'],
+          stereo_header5 = "Eastern Africa",
+          content8 = stereo_df.loc[12]['Culture and Language'],
+          stereo_header6 = "Southern Africa",
+          content9 = stereo_df.loc[13]['Culture and Language'],
+          pic3 = stereo_df.loc[14]['Culture and Language'],
+          pic4 = stereo_df.loc[15]['Culture and Language'],
+          stereo_header7 = "Madagascar",
+          content10 = stereo_df.loc[16]['Culture and Language'])
      elif stereo == 'war':
-          return render_template('stereopage.html', title="War", data=stereo_df)
+          return render_template('stereopage.html', title="War", stereo_header = stereo_df.loc[0]['War'],
+          content1 = stereo_df.loc[1]['War'],
+          pic1 = stereo_df.loc[2]['War'],
+          content2 = stereo_df.loc[3]['War'],
+          stereo_header2 = stereo_df.loc[4]['War'],
+          content3 = stereo_df.loc[5]['War'],
+          pic2 = stereo_df.loc[6]['War'])
      elif stereo == 'healthcare':
-          return render_template('stereopage.html', title="Healthcare", data=stereo_df)
+          return render_template('stereopage.html', title="Healthcare", stereo_header = stereo_df.loc[0]['Healthcare'],
+          content1 = stereo_df.loc[1]['Healthcare'],
+          pic1 = stereo_df.loc[2]['Healthcare'],
+          content2 = stereo_df.loc[3]['Healthcare'],
+          pic2 = stereo_df.loc[4]['Healthcare'],
+          content3 = stereo_df.loc[5]['Healthcare'])
      elif stereo == 'infrastructure': 
-          return render_template('stereopage.html', title="Infrastructure", data=stereo_df) 
+          return render_template('stereopage.html', title="Infrastructure", stereo_header = stereo_df.loc[0]['Infrastructure'],    
+          content1 = stereo_df.loc[1]['Infrastructure'],   
+          pic1 = stereo_df.loc[2]['Infrastructure'],   
+          content2 = stereo_df.loc[3]['Infrastructure'],   
+          content3 = stereo_df.loc[4]['Infrastructure'],   
+          content4 = stereo_df.loc[5]['Infrastructure'],   
+          pic2 = stereo_df.loc[6]['Infrastructure'],   
+          pic3 = stereo_df.loc[7]['Infrastructure'],   
+          pic4 = stereo_df.loc[8]['Infrastructure'],   
+          content5 = stereo_df.loc[9]['Infrastructure']) 
      elif stereo == 'education': 
-          return render_template('stereopage.html', title="Education", data=stereo_df) 
+          return render_template('stereopage.html', title="Education", stereo_header = stereo_df.loc[0]['Education'],
+          content1 = stereo_df.loc[0]['Education'],
+          link1 = stereo_df.loc[0]['Education'],
+          content1_2 = stereo_df.loc[0]['Education'],
+          embed1 = stereo_df.loc[0]['Education'],
+          content2 = stereo_df.loc[0]['Education'],
+          content3 = stereo_df.loc[0]['Education']) 
      
 if __name__ == "__main__":
      app.run(debug=True) 
