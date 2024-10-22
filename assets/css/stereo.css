@@ -104,9 +104,9 @@ img {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 .footer-container {
