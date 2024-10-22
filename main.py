@@ -56264,7 +56264,7 @@ def stereotypes(stereo):
      elif stereo == 'technology':
           return render_template('stereopage.html', title="Technology", stereo_header = stereo_df.loc[0]['Technology'],
           content1 = stereo_df.loc[1]['Technology'],
-          embed1 = stereo_df.loc[2]['Technology'],
+          #embed1 = stereo_df.loc[2]['Technology'],
           content2 = stereo_df.loc[3]['Technology'])
      elif stereo == 'government': 
           return render_template('stereopage.html', title="Government", stereo_header = stereo_df.loc[0]['Government'],
@@ -56330,10 +56330,11 @@ def stereotypes(stereo):
           return render_template('stereopage.html', title="Education", stereo_header = stereo_df.loc[0]['Education'],
           content1 = stereo_df.loc[1]['Education'],
           link1 = stereo_df.loc[2]['Education'],
-          content1_2 = stereo_df.loc[3]['Education'],
-          embed1 = stereo_df.loc[4]['Education'],
-          content2 = stereo_df.loc[5]['Education'],
-          content3 = stereo_df.loc[6]['Education']) 
+          content1_2 = stereo_df.loc[2]['Education'],
+          embed1 = stereo_df.loc[3]['Education'],
+          content2 = stereo_df.loc[4]['Education'],
+          content3 = stereo_df.loc[5]['Education'],
+          content4 = stereo_df.loc[6]['Education'])
      
 if __name__ == "__main__":
      app.run(debug=True) 
