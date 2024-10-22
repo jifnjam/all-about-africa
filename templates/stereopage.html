@@ -73,22 +73,24 @@
 {% elif title == "Technology" %}
 <h2>{{stereo_header}}</h2>
 <p>{{content1}}</p>
-{{embed1}}
+<div>{{embed1}}</div>
 <p>{{content2}}</p>
 {% elif title == "Government" %}
 <h2>{{stereo_header}}</h2>
 <p>content1</p>
-{{embed1}}
+<div>{{embed1}}</div>
 <p>{{content2}}</p>
-<img src="{{pic1}}"> 
-<img src="{{pic2}}"> 
-<img src="{{pic3}}"> 
-<img src="{{pic4}}"> 
+<div class="imgcontainer">
+     <img class="imgitem" src="{{pic1}}"> 
+     <img class="imgitem" src="{{pic2}}"> 
+     <img class="imgitem" src="{{pic3}}"> 
+     <img class="imgitem" src="{{pic4}}"> 
+</div>
 <p>{{content3}}</p>
 {% elif title == "Culture and Language" %}
 <h2>{{stereo_header}}</h2> 
 <p>{{content1}}</p> 
-{{embed1}} 
+<div>{{embed1}}</div> 
 <p>{{content2}}</p>  
 <img src="{{pic1}}">
 <p> {{content3}}</p>  
@@ -104,9 +106,11 @@
 <h2>{{stereo_header5}}</h2> 
 <p> {{content8}}</p> 
 <h2>{{stereo_header6}}</h2> 
-<p> {{content9}}</p>  
-<img src="{{pic3}}"> 
-<img src="{{pic4}}"> 
+<p> {{content9}}</p>
+<div class="imgcontainer"> 
+     <img class="imgitem" src="{{pic3}}"> 
+     <img class="imgitem" src="{{pic4}}">
+</div>
 <h2>{{stereo_header7}}</h2> 
 <p>{{content10}}</p> 
 {% elif title == "War" %}
