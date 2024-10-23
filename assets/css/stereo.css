@@ -87,7 +87,7 @@ header {
   color: black;
   font-family: inherit;
   position: relative;
-  margin: 100px;
+  margin: 20px 10px 20px;
   padding: 30px;
   font-size: 1.2em;
 
@@ -105,7 +105,8 @@ img {
   display: block;
   width: 500px;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 30px;
 }
 
 .footer-container {

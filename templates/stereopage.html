@@ -8,8 +8,10 @@
 <p>{{ content1 }}</p>
 <img src="{{ pic1 }}">
 <p>{{ content2 }}</p>
-<img src="{{ pic2 }}">
-<img src="{{ pic3 }}">
+<div class="imgcontainer">
+     <img class="imgitem" src="{{ pic2 }}">
+     <img class="imgitem" src="{{ pic3 }}">
+</div>
 <p>{{ content3 }}</p>
 <img src="{{ pic4 }}">
 {% elif title == "Landscape" %}
@@ -23,8 +25,10 @@
 <img src="{{ pic2 }}">
 <h2>{{ stereo_header4 }}</h2>
 <p>{{ content4 }}</p>
-<img src="{{ pic3 }}">
-<img src="{{ pic4 }}">
+<div class="imgcontainer">
+     <img class="imgitem" src="{{ pic3 }}">
+     <img class="imgitem" src="{{ pic4 }}">
+</div>
 <h2>{{ stereo_header5 }}</h2>
 <p>{{ content5 }}</p>
 <img src="{{ pic5 }}">
@@ -39,10 +43,12 @@
 <img src="{{ pic8 }}">
 <h2>{{ stereo_header9 }}</h2>
 <p>{{ content9 }}</p>
-<img src="{{ pic9 }}">
-<img src="{{ pic10 }}">
-<img src="{{ pic11 }}">
-<img src="{{ pic12 }}">
+<div class="imgcontainer">
+<img class="imgitem" src="{{ pic9 }}">
+<img class="imgitem" src="{{ pic10 }}">
+<img class="imgitem" src="{{ pic11 }}">
+<img class="imgitem" src="{{ pic12 }}">
+</div>
 <h2>{{ stereo_header10 }}</h2>
 <p>{{ content10 }}</p>
 <img src="{{ pic13 }}">
@@ -73,11 +79,13 @@
 {% elif title == "Technology" %}
 <h2>{{stereo_header}}</h2>
 <p>{{content1}}</p>
+<div class="infogram-embed" data-id="26e0721d-9758-4e9c-b959-e5aca7dfcfc7" data-type="interactive" data-title="8 African countries: Evolution of internet penetration rates"></div><script>!function(e,n,i,s){var d="InfogramEmbeds";var o=e.getElementsByTagName(n)[0];if(window[d]&&window[d].initialized)window[d].process&&window[d].process();else if(!e.getElementById(i)){var r=e.createElement(n);r.async=1,r.id=i,r.src=s,o.parentNode.insertBefore(r,o)}}(document,"script","infogram-async","https://e.infogram.com/js/dist/embed-loader-min.js");</script>
 <p>{{content2}}</p>
-
+<a href="https://www.statista.com/statistics/1124283/internet-penetration-in-africa-by-country/" rel="nofollow"><img src="https://www.statista.com/graphic/1/1124283/internet-penetration-in-africa-by-country.jpg" alt="Statistic: Share of internet users in Africa as of January 2024, by country | Statista" style="width: 100%; height: auto !important; max-width:1000px;-ms-interpolation-mode: bicubic;"/></a><br />Find more statistics at  <a href="https://www.statista.com" rel="nofollow">Statista</a>
 {% elif title == "Government" %}
 <h2>{{stereo_header}}</h2>
 <p>{{content1}}</p>
+<div class="transparencyEmbed" data-year="2023"></div><script src="https://transparency.org/assets/dist/embed-generator.js"></script>
 <p>{{content2}}</p>
 <div class="imgcontainer">
      <img class="imgitem" src="{{pic1}}"> 
@@ -141,6 +149,7 @@
 <h2>{{stereo_header}}</h2>
 <p>{{content1}}</p>
 <p>{{content1_2}}</p>
+<span style="font-family: Calibri;font-size: 15px;color: #000000;"><a href="https://intelpoint.co/insights/adult-literacy-rates-of-african-countries/" title="Adult literacy rates of African countries"><img src="https://intelpoint.co/wp-content/uploads/2024/01/Adult-literacy-rates-of-African-countries.webp" style="width: 80%; height: auto; max-width:960px;-ms-interpolation-mode: bicubic; margin: 0 auto; display: block;" alt="Chart: Adult literacy rates of African countries"/></a><br><span>Find more insights at <a href="https://intelpoint.co/insights?utm_source=Insight%20Embed&utm_medium=HTML&utm_campaign=Adult+literacy+rates+of+African+countries" target="_blank" style="color: #4f9acc; text-decoration: none;">Intelpoint</a>.</span>
 <p>{{content2}}</p>
 <p>{{content3}}</p>
 <p>{{content4}}</p>

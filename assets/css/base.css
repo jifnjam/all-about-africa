@@ -115,7 +115,7 @@ header > h1 {
 
 #begin h1 {
   text-align: inherit;
-  font-size: 2em;
+  font-size: 2.5em;
   font-family: inherit;
   color: inherit;
 }
@@ -126,6 +126,12 @@ header > h1 {
   font-family: "Open Sans", sans;
   color: inherit;
   padding: 20px;
+}
+
+#begin h2 {
+  text-align: center;
+  font-size: 2em;
+  font-family: inherit;
 }
 
 .imgcontainer {
@@ -144,6 +150,11 @@ header > h1 {
   padding: 20px;
   max-width: 100%;
   height: auto;
+}
+
+.mappy {
+  width: 100%;
+  height: fit-content;
 }
 
 .btn {
