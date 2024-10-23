@@ -85,7 +85,7 @@
 {% elif title == "Government" %}
 <h2>{{stereo_header}}</h2>
 <p>{{content1}}</p>
-<div class="transparencyEmbed" data-year="2023"></div><script src="https://transparency.org/assets/dist/embed-generator.js"></script>
+<!--<div class="transparencyEmbed" data-year="2023"></div><script src="https://transparency.org/assets/dist/embed-generator.js"></script>-->
 <p>{{content2}}</p>
 <div class="imgcontainer">
      <img class="imgitem" src="{{pic1}}"> 
@@ -141,18 +141,20 @@
 <p>{{content2}}</p> 
 <p>{{content3}}</p>   
 <p>{{content4}}</p>  
-<img src="{{pic2}}">
-<img src="{{pic3}}">
-<img src="{{pic4}}">
+<div class="imgcontainer">
+<img class="imgitem" src="{{pic2}}">
+<img class="imgitem" src="{{pic3}}">
+<img class="imgitem" src="{{pic4}}">
+</div>
 <p>{{content5}} 
 {% elif title == "Education" %}
 <h2>{{stereo_header}}</h2>
 <p>{{content1}}</p>
 <p>{{content1_2}}</p>
-<span style="font-family: Calibri;font-size: 15px;color: #000000;"><a href="https://intelpoint.co/insights/adult-literacy-rates-of-african-countries/" title="Adult literacy rates of African countries"><img src="https://intelpoint.co/wp-content/uploads/2024/01/Adult-literacy-rates-of-African-countries.webp" style="width: 80%; height: auto; max-width:960px;-ms-interpolation-mode: bicubic; margin: 0 auto; display: block;" alt="Chart: Adult literacy rates of African countries"/></a><br><span>Find more insights at <a href="https://intelpoint.co/insights?utm_source=Insight%20Embed&utm_medium=HTML&utm_campaign=Adult+literacy+rates+of+African+countries" target="_blank" style="color: #4f9acc; text-decoration: none;">Intelpoint</a>.</span>
 <p>{{content2}}</p>
 <p>{{content3}}</p>
-<p>{{content4}}</p>
+<span style="font-family: Calibri;font-size: 15px;color: #000000;"><a href="https://intelpoint.co/insights/adult-literacy-rates-of-african-countries/" title="Adult literacy rates of African countries"><img src="https://intelpoint.co/wp-content/uploads/2024/01/Adult-literacy-rates-of-African-countries.webp" style="width: 80%; height: auto; max-width:960px;-ms-interpolation-mode: bicubic; margin: 0 auto; display: block;" alt="Chart: Adult literacy rates of African countries"/></a><br><span>Find more insights at <a href="https://intelpoint.co/insights?utm_source=Insight%20Embed&utm_medium=HTML&utm_campaign=Adult+literacy+rates+of+African+countries" target="_blank" style="color: #4f9acc; text-decoration: none;">Intelpoint</a>.</span>
+
 {% endif %}
 
 {% endblock %}

@@ -56332,8 +56332,7 @@ def stereotypes(stereo):
           content1_2 = stereo_df.loc[3]['Education'],
           embed1 = stereo_df.loc[4]['Education'],
           content2 = stereo_df.loc[5]['Education'],
-          content3 = stereo_df.loc[6]['Education'],
-          content4 = stereo_df.loc[7]['Education'])
+          content3 = stereo_df.loc[6]['Education'])
      
 if __name__ == "__main__":
      app.run(debug=True) 
