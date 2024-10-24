@@ -1,3 +1,4 @@
+//Bokeh Map
 (function() {
   const fn = function() {
     'use strict';
