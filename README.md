@@ -1,4 +1,4 @@
-# All About Africa
+# All About Africa (INACTIVE)
 This repository is for my "All About Africa" website. 
 Its primary focus is to discuss African stereotypes and show the positive and overlooked side of Africa.
 The website also includes information about all 54 of Africa's countries, including the capital, president, and main language(s) spoken on an interactive bokeh map.
